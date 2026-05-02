@@ -22,8 +22,11 @@ import { SystemSlide } from "./slides/SystemSlide";
 import { ScenarioSlide } from "./slides/ScenarioSlide";
 import { ThanksSlide } from "./slides/ThanksSlide";
 
+const EASE_PREMIUM = [0.4, 0, 0.2, 1] as const;
+
 export function Presentation() {
   const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState<1 | -1>(1);
   const [dark, setDark] = useState(false);
   const [tocOpen, setTocOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -41,11 +44,25 @@ export function Presentation() {
   }, []);
 
   const next = useCallback(
-    () => setIndex((i) => Math.min(slides.length - 1, i + 1)),
+    () =>
+      setIndex((i) => {
+        if (i >= slides.length - 1) return i;
+        setDirection(1);
+        return i + 1;
+      }),
     [],
   );
-  const prev = useCallback(() => setIndex((i) => Math.max(0, i - 1)), []);
+  const prev = useCallback(
+    () =>
+      setIndex((i) => {
+        if (i <= 0) return i;
+        setDirection(-1);
+        return i - 1;
+      }),
+    [],
+  );
   const goTo = (i: number) => {
+    setDirection(i >= index ? 1 : -1);
     setIndex(i);
     setTocOpen(false);
   };
@@ -142,15 +159,41 @@ export function Presentation() {
       </header>
 
       {/* Slide canvas */}
-      <main className="absolute inset-0 pt-20 pb-20">
-        <AnimatePresence mode="wait">
+      <main className="absolute inset-0 pt-20 pb-20" style={{ perspective: 1800 }}>
+        <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={slides[index].id}
-            initial={{ opacity: 0, x: 60 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -60 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="w-full h-full"
+            custom={direction}
+            initial={{
+              opacity: 0,
+              x: direction * 120,
+              scale: 0.94,
+              filter: "blur(14px)",
+              rotateY: direction * 6,
+            }}
+            animate={{
+              opacity: 1,
+              x: 0,
+              scale: 1,
+              filter: "blur(0px)",
+              rotateY: 0,
+              transition: {
+                duration: 0.9,
+                ease: EASE_PREMIUM,
+                opacity: { duration: 0.6, ease: EASE_PREMIUM },
+                filter: { duration: 0.7, ease: EASE_PREMIUM },
+              },
+            }}
+            exit={{
+              opacity: 0,
+              x: direction * -100,
+              scale: 0.96,
+              filter: "blur(10px)",
+              rotateY: direction * -4,
+              transition: { duration: 0.55, ease: EASE_PREMIUM },
+            }}
+            className="w-full h-full will-change-transform"
+            style={{ transformStyle: "preserve-3d" }}
           >
             {renderSlide()}
           </motion.div>
