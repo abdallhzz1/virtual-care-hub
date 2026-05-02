@@ -195,15 +195,24 @@
   100% { transform: translateY(-10vh) translateX(20px); opacity: 0; }
 }
 
-/* ECG line */
-@keyframes ecg-scroll {
-  from { stroke-dashoffset: 0; }
-  to { stroke-dashoffset: -2000; }
+@keyframes float-up-slow {
+  0% { transform: translateY(105vh) translateX(0); opacity: 0; }
+  8% { opacity: 0.4; }
+  50% { transform: translateY(50vh) translateX(calc(var(--drift) * 0.5)); opacity: 0.5; }
+  92% { opacity: 0.4; }
+  100% { transform: translateY(-10vh) translateX(var(--drift)); opacity: 0; }
 }
 
-.ecg-path {
-  stroke-dasharray: 2000;
-  animation: ecg-scroll 8s linear infinite;
+/* ECG line - long cinematic scroll */
+@keyframes ecg-scroll {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -4000; }
+}
+
+.ecg-path,
+.ecg-path-long {
+  stroke-dasharray: 4000;
+  animation: ecg-scroll 28s linear infinite;
 }
 
 /* Scrollbar */
