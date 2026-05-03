@@ -6,57 +6,72 @@ const users = [
   {
     icon: User,
     title: "المريض",
-    items: ["حجز المواعيد", "متابعة الحالة", "استلام النتائج", "الوصفات الطبية"],
-    color: "oklch(0.7 0.15 220)",
+    items: ["حجز المواعيد", "متابعة الحالة الصحية", "استلام نتائج التحاليل", "عرض الوصفات الطبية", "التواصل مع الطبيب"],
+    color: "#099dfd", // Primary cyan/blue
   },
   {
     icon: Stethoscope,
     title: "الطبيب",
-    items: ["إدارة المرضى", "جلسات الفيديو", "إصدار التقارير", "الوصفات"],
-    color: "oklch(0.6 0.18 245)",
+    items: ["إدارة المرضى", "إجراء الجلسات عبر الفيديو", "إدخال التقارير الطبية", "إرسال الوصفات الطبية", "طلب التحاليل الطبية"],
+    color: "#8b5cf6", // Violet
   },
   {
     icon: FlaskConical,
     title: "المختبر",
-    items: ["استقبال الطلبات", "إجراء الفحوصات", "رفع النتائج", "التواصل"],
-    color: "oklch(0.7 0.18 180)",
+    items: ["استقبال طلبات التحاليل", "إجراء الفحوصات الطبية", "رفع النتائج إلى النظام", "مشاركة النتائج مع الطبيب والمريض"],
+    color: "#10b981", // Emerald
   },
   {
     icon: Settings,
     title: "مدير النظام",
-    items: ["إدارة النظام", "مراجعة الشكاوى", "نشر الإعلانات", "الإحصائيات"],
-    color: "oklch(0.65 0.18 280)",
+    items: ["إدارة المستخدمين", "مراجعة الشكاوى", "إرسال الإعلانات", "متابعة أداء النظام"],
+    color: "#f59e0b", // Amber
   },
 ];
 
 export function UsersSlide() {
   return (
     <SlideShell number={4} eyebrow="Users" title="المستخدمون">
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {users.map((u, i) => (
           <motion.div
             key={u.title}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 + i * 0.12 }}
-            whileHover={{ y: -8 }}
-            className="glass rounded-3xl p-6 group"
+            whileHover={{ y: -8, scale: 1.02 }}
+            className="glass rounded-[2rem] p-7 group relative overflow-hidden border border-white/10"
           >
-            <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
-              style={{ background: `linear-gradient(135deg, ${u.color}, var(--color-primary))`, boxShadow: `0 10px 30px -10px ${u.color}` }}
+            {/* Watermark Icon */}
+            <div 
+              className="absolute left-[-15%] bottom-[-10%] opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none"
+              style={{ color: u.color }}
             >
-              <u.icon className="w-8 h-8 text-white" />
+              <u.icon className="w-56 h-56" />
             </div>
-            <h3 className="text-2xl font-bold mb-4">{u.title}</h3>
-            <ul className="space-y-2">
-              {u.items.map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+
+            <div className="relative z-10">
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg"
+                style={{ background: `linear-gradient(135deg, ${u.color}, var(--color-primary))`, boxShadow: `0 10px 30px -10px ${u.color}` }}
+              >
+                <u.icon className="w-8 h-8 text-white drop-shadow-md" />
+              </div>
+              
+              <h3 className="text-2xl font-bold mb-5" style={{ color: u.color }}>{u.title}</h3>
+              
+              <ul className="space-y-3">
+                {u.items.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm md:text-base text-muted-foreground leading-snug">
+                    <span 
+                      className="w-1.5 h-1.5 mt-2 rounded-full flex-shrink-0" 
+                      style={{ backgroundColor: u.color, boxShadow: `0 0 8px ${u.color}` }} 
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
         ))}
       </div>

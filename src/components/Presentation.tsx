@@ -159,7 +159,7 @@ export function Presentation() {
       </header>
 
       {/* Slide canvas */}
-      <main className="absolute inset-0 pt-20 pb-20" style={{ perspective: 1800 }}>
+      <main className="absolute inset-0 pt-20 pb-22" style={{ perspective: 1800 }}>
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={slides[index].id}

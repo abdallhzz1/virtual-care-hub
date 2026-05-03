@@ -12,8 +12,8 @@ const EASE = [0.4, 0, 0.2, 1] as const;
 
 export function SlideShell({ children, eyebrow, title, number }: SlideShellProps) {
   return (
-    <div className="w-full h-full flex items-center justify-center px-6 md:px-16 lg:px-24 py-12 overflow-y-auto">
-      <div className="w-full max-w-7xl mx-auto">
+    <div className="w-full h-full flex items-center justify-center px-6 md:px-16 lg:px-24 py-6 md:py-8 overflow-hidden">
+      <div className="w-full max-w-7xl mx-auto flex flex-col h-full justify-center">
         {(eyebrow || title) && (
           <div className="mb-10">
             {eyebrow && (
