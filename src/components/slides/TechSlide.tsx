@@ -8,35 +8,35 @@ import agoraIcon from "../../assets/agora.png";
 const techs = [
   { 
     name: "React", 
-    role: "الموقع الإلكتروني", 
+    role: "Website", 
     desc: "بناء واجهة مستخدم تفاعلية وسريعة لتجربة استخدام سلسة على الويب.",
     color: "#61dafb", 
     icon: reactIcon 
   },
   { 
     name: "React Native", 
-    role: "تطبيق الموبايل", 
+    role: "Mobile Application", 
     desc: "تطوير تطبيق يعمل على الهواتف الذكية لتسهيل وصول المستخدمين إلى النظام في أي وقت.",
     color: "#61dafb", 
     icon: reactIcon 
   },
   { 
     name: "Firebase", 
-    role: "الباك اند وقاعدة البيانات", 
+    role: "Backend And Database", 
     desc: "إدارة البيانات والمستخدمين بشكل لحظي (Real-time) مع توفير بيئة آمنة وسريعة للتطبيق.",
     color: "#ffca28", 
     icon: firebaseIcon 
   },
   { 
     name: "Cloudinary", 
-    role: "تخزين الملفات الطبية", 
+    role: "File storage", 
     desc: "إدارة وتخزين الصور والتقارير الطبية بشكل آمن وسريع مع سهولة الوصول إليها.",
     color: "#3448c5", 
     icon: cloudinaeyIcon 
   },
   { 
     name: "Agora", 
-    role: "جلسات الفيديو المباشرة", 
+    role: "Live Video Sessions", 
     desc: "توفير تواصل مرئي مباشر وآمن بين الطبيب والمريض لإجراء الاستشارات الطبية عن بُعد.",
     color: "#099dfd", 
     icon: agoraIcon 
@@ -45,8 +45,8 @@ const techs = [
 
 export function TechSlide() {
   return (
-    <SlideShell number={3} eyebrow="Tech Stack" title="التقنيات المستخدمة">
-      <div className="flex flex-wrap justify-center gap-4 lg:gap-5">
+    <SlideShell number={4} eyebrow="Tech Stack" title="التقنيات المستخدمة">
+      <div className="flex flex-wrap justify-center gap-4 lg:gap-5 max-w-7xl mx-auto">
         {techs.map((t, i) => (
           <motion.div
             key={t.name}
@@ -58,12 +58,12 @@ export function TechSlide() {
           >
             {/* Background glowing orb */}
             <div 
-              className="absolute top-0 right-0 w-24 h-24 rounded-full blur-3xl opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none"
+              className="absolute top-0 right-0 w-28 h-28 rounded-full blur-3xl opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none"
               style={{ backgroundColor: t.color }}
             />
 
             <div
-              className="w-16 h-16 mb-4 rounded-2xl bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 relative z-10"
+              className="w-16 h-16 mb-3 rounded-2xl bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 relative z-10"
               style={{ boxShadow: `0 8px 25px -10px ${t.color}` }}
             >
               <img src={t.icon} alt={t.name} className="w-9 h-9 object-contain drop-shadow-md" />
@@ -72,7 +72,7 @@ export function TechSlide() {
             <div className="relative z-10">
               <h3 className="font-extrabold text-xl mb-1 tracking-wide" style={{ color: t.color }}>{t.name}</h3>
               <h4 className="font-bold text-foreground mb-2 text-base">{t.role}</h4>
-              <p className="text-xs text-muted-foreground leading-relaxed">
+              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                 {t.desc}
               </p>
             </div>

@@ -35,8 +35,8 @@ const features = [
 
 export function IdeaSlide() {
   return (
-    <SlideShell number={2} eyebrow="The Idea" title="فكرة المشروع">
-      <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+    <SlideShell number={3} eyebrow="The Idea" title="فكرة المشروع">
+      <div className="grid md:grid-cols-2 gap-4 lg:gap-5 max-w-7xl mx-auto">
         {features.map((f, i) => (
           <motion.div
             key={f.title}
@@ -44,7 +44,7 @@ export function IdeaSlide() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
             whileHover={{ y: -6, scale: 1.02 }}
-            className={`glass rounded-3xl p-8 text-right group border border-white/10 relative overflow-hidden bg-gradient-to-br ${f.color}`}
+            className={`glass rounded-3xl p-6 md:p-7 text-right group border border-white/10 relative overflow-hidden bg-gradient-to-br ${f.color}`}
           >
             {/* Background icon watermark */}
             <div className="absolute left-[-10%] top-[-10%] opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-500 pointer-events-none">
@@ -52,10 +52,10 @@ export function IdeaSlide() {
             </div>
 
             <div className="relative z-10">
-              <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-6 shadow-sm border border-white/10 group-hover:scale-110 transition-transform duration-300">
-                <f.icon className={`w-8 h-8 ${f.iconColor}`} />
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-3 shadow-sm border border-white/10 group-hover:scale-110 transition-transform duration-300">
+                <f.icon className={`w-7 h-7 md:w-8 md:h-8 ${f.iconColor}`} />
               </div>
-              <h3 className="text-2xl font-bold mb-4">{f.title}</h3>
+              <h3 className="text-xl md:text-2xl font-bold mb-2">{f.title}</h3>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                 {f.text}
               </p>
@@ -66,4 +66,3 @@ export function IdeaSlide() {
     </SlideShell>
   );
 }
-

@@ -15,12 +15,17 @@ import { slides } from "@/data/slides";
 import { MedicalBackground } from "./MedicalBackground";
 import { CoverSlide } from "./slides/CoverSlide";
 import { IntroSlide } from "./slides/IntroSlide";
+import { ProblemSlide } from "./slides/ProblemSlide";
 import { IdeaSlide } from "./slides/IdeaSlide";
 import { TechSlide } from "./slides/TechSlide";
 import { UsersSlide } from "./slides/UsersSlide";
+import { UseCaseSlide } from "./slides/UseCaseSlide";
+import { ErdSlide } from "./slides/ErdSlide";
 import { SystemSlide } from "./slides/SystemSlide";
 import { ScenarioSlide } from "./slides/ScenarioSlide";
 import { ThanksSlide } from "./slides/ThanksSlide";
+import teleLogo from "../assets/telemedicine-logo.png";
+import uniLogo from "../assets/hebron-university-logo.png";
 
 const EASE_PREMIUM = [0.4, 0, 0.2, 1] as const;
 
@@ -91,13 +96,19 @@ export function Presentation() {
     else document.exitFullscreen();
   };
 
+  const currentSlideId = slides[index].id;
+  const isCoverSlide = currentSlideId === "cover";
+
   const renderSlide = () => {
-    switch (slides[index].id) {
+    switch (currentSlideId) {
       case "cover": return <CoverSlide />;
       case "intro": return <IntroSlide />;
+      case "problem": return <ProblemSlide />;
       case "idea": return <IdeaSlide />;
       case "tech": return <TechSlide />;
       case "users": return <UsersSlide />;
+      case "usecase": return <UseCaseSlide />;
+      case "erd": return <ErdSlide />;
       case "system": return <SystemSlide onStart={() => setIndex(slides.findIndex((s) => s.id === "scenario"))} />;
       case "scenario": return <ScenarioSlide />;
       case "thanks": return <ThanksSlide />;
@@ -110,6 +121,45 @@ export function Presentation() {
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-background text-foreground">
       <MedicalBackground />
+
+      {/* Persistent Header Logos — shown on ALL slides except cover (cover has its own) */}
+      {!isCoverSlide && (
+        <div className="absolute top-12 inset-x-0 z-40 flex items-start justify-between px-4 md:px-6 pointer-events-none">
+          {/* University Logo - RIGHT (first in RTL) */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex flex-col items-center gap-1"
+          >
+            <motion.div
+              animate={{ y: [0, -3, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              className="w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 rounded-full glass border border-primary/30 flex items-center justify-center p-1.5 bg-white/5 glow"
+            >
+              <img src={uniLogo} alt="Hebron University" className="w-full h-full object-contain drop-shadow-md" />
+            </motion.div>
+            <span className="text-[8px] md:text-[9px] font-bold text-primary tracking-widest uppercase">Hebron University</span>
+          </motion.div>
+
+          {/* Telemedicine Logo - LEFT (last in RTL) */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex flex-col items-center gap-1"
+          >
+            <motion.div
+              animate={{ y: [0, -3, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 rounded-full glass border border-primary/30 flex items-center justify-center p-1.5 glow"
+            >
+              <img src={teleLogo} alt="Telemedicine" className="w-full h-full object-contain drop-shadow-lg" />
+            </motion.div>
+            <span className="text-[8px] md:text-[9px] font-bold text-primary tracking-widest uppercase">Telemedicine</span>
+          </motion.div>
+        </div>
+      )}
 
       {/* Top bar */}
       <header className="absolute top-0 inset-x-0 z-30 flex items-center justify-between px-6 py-4">
@@ -159,7 +209,7 @@ export function Presentation() {
       </header>
 
       {/* Slide canvas */}
-      <main className="absolute inset-0 pt-20 pb-22" style={{ perspective: 1800 }}>
+      <main className="absolute inset-0 pt-14 pb-16" style={{ perspective: 1800 }}>
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={slides[index].id}
@@ -201,7 +251,7 @@ export function Presentation() {
       </main>
 
       {/* Bottom nav */}
-      <footer className="absolute bottom-0 inset-x-0 z-30 px-6 py-4">
+      <footer className="absolute bottom-0 inset-x-0 z-30 px-6 py-2.5">
         <div className="max-w-4xl mx-auto">
           {/* Progress bar */}
           <div className="h-1 rounded-full bg-muted/50 overflow-hidden mb-3">

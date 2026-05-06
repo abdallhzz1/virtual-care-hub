@@ -86,7 +86,7 @@ export function ScenarioSlide() {
   const bothStreams = mediaStream1 && mediaStream2;
 
   return (
-    <SlideShell number={6} eyebrow="Scenario Flow" title="سيناريو العمل التفاعلي">
+    <SlideShell number={9} eyebrow="Scenario Flow" title="سيناريو العمل التفاعلي">
       <div className="relative w-full h-full">
         {/* Main Content (Shifted when phone is active) */}
         <div className={`transition-all duration-500 flex flex-col h-full ${
@@ -98,7 +98,7 @@ export function ScenarioSlide() {
         }`}>
           
           {/* Progress bar & Header Actions */}
-          <div className="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="mb-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
             <div className="flex-1 flex items-center gap-4 w-full">
               <div className="flex-1 h-2 rounded-full bg-muted overflow-hidden">
                 <motion.div
@@ -151,7 +151,7 @@ export function ScenarioSlide() {
 
           <div className={`grid gap-6 flex-1 transition-all duration-500 ${anyStream ? "lg:grid-cols-[220px_1fr]" : "lg:grid-cols-[300px_1fr]"}`}>
             {/* Steps list */}
-            <div className="glass rounded-3xl p-3 max-h-[500px] overflow-y-auto">
+            <div className="glass rounded-3xl p-3 max-h-[400px] overflow-y-auto">
               <div className="space-y-1">
                 {scenarioSteps.map((s, i) => {
                   const sActor = actorMeta[s.actor];
@@ -188,7 +188,7 @@ export function ScenarioSlide() {
             </div>
 
             {/* Active step detail */}
-            <div className="relative min-h-[500px]">
+            <div className="relative min-h-[400px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={step.id}

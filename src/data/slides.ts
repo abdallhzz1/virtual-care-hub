@@ -6,12 +6,15 @@ export interface Slide {
 export const slides: Slide[] = [
   { id: "cover", title: "الغلاف" },
   { id: "intro", title: "مقدمة المشروع" },
+  { id: "problem", title: "المشكلة" },
   { id: "idea", title: "فكرة المشروع" },
   { id: "tech", title: "التقنيات المستخدمة" },
   { id: "users", title: "المستخدمون" },
+  { id: "usecase", title: "Use Case Diagram" },
+  { id: "erd", title: "ERD Diagram" },
   { id: "system", title: "عرض النظام" },
   { id: "scenario", title: "سيناريو العمل" },
-  { id: "thanks", title: "شكراً لكم" },
+  { id: "thanks", title: "تم بحمد الله" },
 ];
 
 export interface ScenarioStep {

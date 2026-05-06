@@ -31,8 +31,8 @@ const users = [
 
 export function UsersSlide() {
   return (
-    <SlideShell number={4} eyebrow="Users" title="المستخدمون">
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <SlideShell number={5} eyebrow="Users" title="المستخدمون">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 max-w-7xl mx-auto">
         {users.map((u, i) => (
           <motion.div
             key={u.title}
@@ -40,7 +40,7 @@ export function UsersSlide() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 + i * 0.12 }}
             whileHover={{ y: -8, scale: 1.02 }}
-            className="glass rounded-[2rem] p-7 group relative overflow-hidden border border-white/10"
+            className="glass rounded-[1.5rem] p-5 md:p-6 group relative overflow-hidden border border-white/10"
           >
             {/* Watermark Icon */}
             <div 
@@ -52,19 +52,19 @@ export function UsersSlide() {
 
             <div className="relative z-10">
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg"
+                className="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg"
                 style={{ background: `linear-gradient(135deg, ${u.color}, var(--color-primary))`, boxShadow: `0 10px 30px -10px ${u.color}` }}
               >
-                <u.icon className="w-8 h-8 text-white drop-shadow-md" />
+                <u.icon className="w-7 h-7 md:w-8 md:h-8 text-white drop-shadow-md" />
               </div>
               
-              <h3 className="text-2xl font-bold mb-5" style={{ color: u.color }}>{u.title}</h3>
+              <h3 className="text-xl md:text-2xl font-bold mb-3" style={{ color: u.color }}>{u.title}</h3>
               
-              <ul className="space-y-3">
+              <ul className="space-y-1.5">
                 {u.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm md:text-base text-muted-foreground leading-snug">
+                  <li key={item} className="flex items-start gap-2 text-sm md:text-base text-muted-foreground leading-snug">
                     <span 
-                      className="w-1.5 h-1.5 mt-2 rounded-full flex-shrink-0" 
+                      className="w-2 h-2 mt-2.5 rounded-full flex-shrink-0" 
                       style={{ backgroundColor: u.color, boxShadow: `0 0 8px ${u.color}` }} 
                     />
                     <span>{item}</span>
