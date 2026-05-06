@@ -124,22 +124,22 @@ export function Presentation() {
 
       {/* Persistent Header Logos — shown on ALL slides except cover (cover has its own) */}
       {!isCoverSlide && (
-        <div className="absolute top-12 inset-x-0 z-40 flex items-start justify-between px-4 md:px-6 pointer-events-none">
+        <div className="absolute top-18 inset-x-0 z-40 flex items-start justify-between px-6 md:px-10 pointer-events-none">
           {/* University Logo - RIGHT (first in RTL) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col items-center gap-1"
+            className="flex flex-col items-center gap-2"
           >
             <motion.div
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 rounded-full glass border border-primary/30 flex items-center justify-center p-1.5 bg-white/5 glow"
+              className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full glass border-2 border-primary/30 flex items-center justify-center p-2.5 bg-white/5 glow"
             >
               <img src={uniLogo} alt="Hebron University" className="w-full h-full object-contain drop-shadow-md" />
             </motion.div>
-            <span className="text-[8px] md:text-[9px] font-bold text-primary tracking-widest uppercase">Hebron University</span>
+            <span className="text-[10px] md:text-[11px] font-bold text-primary tracking-widest uppercase">Hebron University</span>
           </motion.div>
 
           {/* Telemedicine Logo - LEFT (last in RTL) */}
@@ -147,16 +147,16 @@ export function Presentation() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col items-center gap-1"
+            className="flex flex-col items-center gap-2"
           >
             <motion.div
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 rounded-full glass border border-primary/30 flex items-center justify-center p-1.5 glow"
+              className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full glass border-2 border-primary/30 flex items-center justify-center p-2.5 glow"
             >
               <img src={teleLogo} alt="Telemedicine" className="w-full h-full object-contain drop-shadow-lg" />
             </motion.div>
-            <span className="text-[8px] md:text-[9px] font-bold text-primary tracking-widest uppercase">Telemedicine</span>
+            <span className="text-[10px] md:text-[11px] font-bold text-primary tracking-widest uppercase">Telemedicine</span>
           </motion.div>
         </div>
       )}

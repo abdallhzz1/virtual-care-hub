@@ -3,30 +3,30 @@ import { MapPin, Brain, FlaskConical, QrCode } from "lucide-react";
 import { SlideShell } from "../SlideShell";
 
 const features = [
-  { 
-    icon: MapPin, 
-    title: "الوصول من أي مكان", 
+  {
+    icon: MapPin,
+    title: "الوصول من أي مكان",
     text: "توفير الخدمات الصحية للمرضى في المناطق النائية أو المتأثرة بالحواجز والظروف السياسية في فلسطين، بما يشمل الضفة الغربية وقطاع غزة.",
     color: "from-blue-500/10 to-transparent",
     iconColor: "text-blue-500"
   },
-  { 
-    icon: Brain, 
-    title: "دعم مرضى الأمراض النفسية", 
+  {
+    icon: Brain,
+    title: "دعم مرضى الأمراض النفسية",
     text: "تقديم بيئة آمنة وسرية تُمكّن المرضى من الحصول على استشارات نفسية بسهولة دون عوائق اجتماعية.",
     color: "from-purple-500/10 to-transparent",
     iconColor: "text-purple-500"
   },
-  { 
-    icon: FlaskConical, 
-    title: "التكامل مع المختبرات", 
+  {
+    icon: FlaskConical,
+    title: "التكامل مع المختبرات",
     text: "إتاحة إرسال طلبات التحاليل الطبية واستلام النتائج إلكترونيًا ضمن النظام بشكل سريع ومنظم.",
     color: "from-emerald-500/10 to-transparent",
     iconColor: "text-emerald-500"
   },
-  { 
-    icon: QrCode, 
-    title: "الوصفات الطبية عبر QR Code", 
+  {
+    icon: QrCode,
+    title: "الوصفات الطبية عبر QR Code",
     text: "تمكين المرضى من عرض الوصفات الطبية إلكترونيًا أو من خلال رمز QR لاستخدامها في الصيدليات بسهولة.",
     color: "from-amber-500/10 to-transparent",
     iconColor: "text-amber-500"

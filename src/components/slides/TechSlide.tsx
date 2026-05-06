@@ -6,40 +6,40 @@ import cloudinaeyIcon from "../../assets/cloudinaey.png";
 import agoraIcon from "../../assets/agora.png";
 
 const techs = [
-  { 
-    name: "React", 
-    role: "Website", 
+  {
+    name: "React",
+    role: "Website",
     desc: "بناء واجهة مستخدم تفاعلية وسريعة لتجربة استخدام سلسة على الويب.",
-    color: "#61dafb", 
-    icon: reactIcon 
+    color: "#61dafb",
+    icon: reactIcon
   },
-  { 
-    name: "React Native", 
-    role: "Mobile Application", 
+  {
+    name: "React Native",
+    role: "Mobile Application",
     desc: "تطوير تطبيق يعمل على الهواتف الذكية لتسهيل وصول المستخدمين إلى النظام في أي وقت.",
-    color: "#61dafb", 
-    icon: reactIcon 
+    color: "#61dafb",
+    icon: reactIcon
   },
-  { 
-    name: "Firebase", 
-    role: "Backend And Database", 
+  {
+    name: "Firebase",
+    role: "Backend And Database",
     desc: "إدارة البيانات والمستخدمين بشكل لحظي (Real-time) مع توفير بيئة آمنة وسريعة للتطبيق.",
-    color: "#ffca28", 
-    icon: firebaseIcon 
+    color: "#ffca28",
+    icon: firebaseIcon
   },
-  { 
-    name: "Cloudinary", 
-    role: "File storage", 
+  {
+    name: "Cloudinary",
+    role: "File storage",
     desc: "إدارة وتخزين الصور والتقارير الطبية بشكل آمن وسريع مع سهولة الوصول إليها.",
-    color: "#3448c5", 
-    icon: cloudinaeyIcon 
+    color: "#3448c5",
+    icon: cloudinaeyIcon
   },
-  { 
-    name: "Agora", 
-    role: "Live Video Sessions", 
+  {
+    name: "Agora",
+    role: "Live Video Sessions",
     desc: "توفير تواصل مرئي مباشر وآمن بين الطبيب والمريض لإجراء الاستشارات الطبية عن بُعد.",
-    color: "#099dfd", 
-    icon: agoraIcon 
+    color: "#099dfd",
+    icon: agoraIcon
   },
 ];
 
@@ -57,7 +57,7 @@ export function TechSlide() {
             className="w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] glass rounded-3xl p-5 md:p-6 text-center group cursor-default border border-white/10 flex flex-col items-center relative overflow-hidden"
           >
             {/* Background glowing orb */}
-            <div 
+            <div
               className="absolute top-0 right-0 w-28 h-28 rounded-full blur-3xl opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none"
               style={{ backgroundColor: t.color }}
             />
@@ -68,7 +68,7 @@ export function TechSlide() {
             >
               <img src={t.icon} alt={t.name} className="w-9 h-9 object-contain drop-shadow-md" />
             </div>
-            
+
             <div className="relative z-10">
               <h3 className="font-extrabold text-xl mb-1 tracking-wide" style={{ color: t.color }}>{t.name}</h3>
               <h4 className="font-bold text-foreground mb-2 text-base">{t.role}</h4>

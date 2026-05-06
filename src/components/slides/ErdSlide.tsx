@@ -1,59 +1,52 @@
 import { motion } from "framer-motion";
 import { Database, Upload } from "lucide-react";
 import { SlideShell } from "../SlideShell";
+import { ZoomableImage } from "../ui/ZoomableImage";
 import erdImage from "../../assets/erd.png";
 
 export function ErdSlide() {
   return (
-    <SlideShell number={7} eyebrow="ERD Diagram" title="ERD Diagram">
-      <div className="flex items-center justify-center w-full">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="relative w-full max-w-6xl glass-strong rounded-[2.5rem] border border-white/10 overflow-hidden shadow-2xl"
-          style={{ boxShadow: "0 0 60px -15px oklch(0.7 0.18 230 / 0.3)" }}
+    <SlideShell number={undefined} eyebrow={undefined} title={undefined}>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full max-w-7xl mx-auto h-full py-4 px-4">
+        
+        {/* Left Side: Title & Info */}
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="lg:col-span-5 flex flex-col gap-8 text-right order-2 lg:order-1"
         >
-          {/* Corner decorations */}
-          <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-cyan-500/30 rounded-tl-[2.5rem]" />
-          <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-cyan-500/30 rounded-tr-[2.5rem]" />
-          <div className="absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-cyan-500/30 rounded-bl-[2.5rem]" />
-          <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-cyan-500/30 rounded-br-[2.5rem]" />
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight flex items-baseline gap-3 flex-wrap justify-start" dir="rtl">
+              <span className="gradient-text">مخطط علاقات الكيانات</span>
+              <span className="text-lg md:text-xl text-cyan-500/60 font-bold">(ERD Diagram)</span>
+            </h2>
 
-          {/* Medical HUD decorations */}
-          <div className="absolute top-4 left-4 flex items-center gap-2 text-cyan-500/40 text-xs font-mono">
-            <Database className="w-3.5 h-3.5" />
-            <span>DB::SCHEMA</span>
-          </div>
-          <div className="absolute top-4 right-4 flex items-center gap-2 text-cyan-500/40 text-xs font-mono">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>ACTIVE</span>
-          </div>
-
-          {/* Diagram container */}
-          <div className="p-4 md:p-6 lg:p-8 min-h-[300px] md:min-h-[380px] lg:min-h-[420px] flex flex-col items-center justify-center">
-            <div className="w-full h-full flex items-center justify-center relative group">
-              <div className="absolute inset-0 bg-cyan-500/5 rounded-2xl blur-xl group-hover:bg-cyan-500/10 transition-colors duration-500" />
-              <img 
-                src={erdImage} 
-                alt="Entity Relationship Diagram" 
-                className="max-w-full max-h-full object-contain rounded-xl relative z-10 drop-shadow-xl border border-white/5 group-hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in bg-white/5 p-2"
-                onClick={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  if (document.fullscreenElement) {
-                    document.exitFullscreen();
-                  } else {
-                    target.requestFullscreen();
-                  }
-                }}
-              />
+          <div className="glass-strong p-8 rounded-[2.5rem] border border-white/10 space-y-5 relative overflow-hidden" dir="rtl">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 blur-3xl -mr-16 -mt-16" />
+            <div className="flex items-center gap-4 text-cyan-500 relative z-10">
+              <Database className="w-6 h-6" />
+              <span className="font-bold text-xl uppercase tracking-wider">هيكلية البيانات والجداول</span>
             </div>
+            <p className="text-muted-foreground leading-relaxed text-base md:text-lg relative z-10">
+              يوضح هذا المخطط كيفية تنظيم البيانات في قاعدة البيانات، مع توضيح الجداول الرئيسية والعلاقات المنطقية بينها لضمان تكامل البيانات.
+            </p>
+            
           </div>
+        </motion.div>
 
-          {/* Bottom status bar */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 glass rounded-full px-5 py-1.5 text-xs font-mono text-cyan-500/50 flex items-center gap-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
-            FIRESTORE::ERD v1.0
+        {/* Right Side: Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="lg:col-span-7 order-1 lg:order-2"
+        >
+          <div className="relative group glass-strong rounded-[2.5rem] border border-white/10 overflow-hidden shadow-2xl p-2 bg-white/5">
+            <ZoomableImage 
+              src={erdImage} 
+              alt="Entity Relationship Diagram" 
+              className="w-full h-auto object-contain rounded-[2rem] relative z-10 drop-shadow-2xl"
+            />
           </div>
         </motion.div>
       </div>

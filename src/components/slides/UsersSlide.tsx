@@ -43,7 +43,7 @@ export function UsersSlide() {
             className="glass rounded-[1.5rem] p-5 md:p-6 group relative overflow-hidden border border-white/10"
           >
             {/* Watermark Icon */}
-            <div 
+            <div
               className="absolute left-[-15%] bottom-[-10%] opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none"
               style={{ color: u.color }}
             >
@@ -57,15 +57,15 @@ export function UsersSlide() {
               >
                 <u.icon className="w-7 h-7 md:w-8 md:h-8 text-white drop-shadow-md" />
               </div>
-              
+
               <h3 className="text-xl md:text-2xl font-bold mb-3" style={{ color: u.color }}>{u.title}</h3>
-              
+
               <ul className="space-y-1.5">
                 {u.items.map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm md:text-base text-muted-foreground leading-snug">
-                    <span 
-                      className="w-2 h-2 mt-2.5 rounded-full flex-shrink-0" 
-                      style={{ backgroundColor: u.color, boxShadow: `0 0 8px ${u.color}` }} 
+                    <span
+                      className="w-2 h-2 mt-2.5 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: u.color, boxShadow: `0 0 8px ${u.color}` }}
                     />
                     <span>{item}</span>
                   </li>
