@@ -87,7 +87,7 @@ export function ScenarioSlide() {
 
   return (
     <SlideShell title="سيناريو العمل التفاعلي" centered>
-      <div className="relative w-full h-full flex flex-row-reverse items-center">
+      <div className="relative w-full h-full flex flex-row items-center">
         {/* Main Content - Left side */}
         <div className="flex-1 flex flex-col h-full">
           
@@ -132,7 +132,7 @@ export function ScenarioSlide() {
 
           <div className={`grid gap-2 flex-1 transition-all duration-500 ${anyStream ? "lg:grid-cols-[350px_1fr]" : "lg:grid-cols-[350px_1fr]"}`}>
             {/* Steps list */}
-            <div className="glass rounded-3xl p-3 max-h-[400px] overflow-y-auto">
+            <div className="glass rounded-3xl p-4 h-[550px] overflow-y-auto custom-scrollbar">
               <div className="space-y-1">
                 {scenarioSteps.map((s, i) => {
                   const sActor = actorMeta[s.actor];
@@ -169,7 +169,7 @@ export function ScenarioSlide() {
             </div>
 
             {/* Active step detail */}
-            <div className="relative min-h-[400px]">
+            <div className="relative h-[550px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={step.id}
@@ -269,7 +269,63 @@ export function ScenarioSlide() {
         </div>
 
         {/* Phone mockup area - Right side (RTL) */}
-        <div className="flex-[0.5] h-full" />
+        <div className="hidden lg:flex flex-[0.45] h-full items-center justify-center pr-8">
+          <div className="relative w-[280px] h-[580px] group">
+            {/* Phone Frame Glow */}
+            <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            
+            {/* Phone Outer Frame */}
+            <div className="relative w-full h-full bg-[#0a0a0c] rounded-[3rem] p-3 shadow-2xl border-[6px] border-[#1a1a1e] ring-1 ring-white/10 overflow-hidden">
+              {/* Speaker/Notch */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-[#1a1a1e] rounded-b-2xl z-20 flex items-center justify-center">
+                <div className="w-10 h-1 bg-white/5 rounded-full" />
+              </div>
+
+              {/* Screen Content */}
+              <div className="relative w-full h-full bg-black rounded-[2rem] overflow-hidden border border-white/5">
+                {mediaStream1 ? (
+                  <motion.video
+                    ref={videoRef1}
+                    autoPlay
+                    playsInline
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-4">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-2">
+                      <MonitorSmartphone className="w-8 h-8 text-primary/60" />
+                    </div>
+                    <p className="text-xs font-bold text-muted-foreground leading-relaxed">
+                      بانتظار بث شاشة التطبيق...
+                    </p>
+                    <p className="text-[10px] text-muted-foreground/60 leading-relaxed">
+                      استخدم برنامج Mirroring لعرض شاشة هاتفك على الكمبيوتر، ثم اضغط "بث شاشة" أعلاه واختبر النافذة.
+                    </p>
+                    
+                    {/* Pulsing indicator */}
+                    <div className="flex gap-1.5 pt-4">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/40 animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/40 animate-bounce" style={{ animationDelay: '200ms' }} />
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/40 animate-bounce" style={{ animationDelay: '400ms' }} />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Reflections/Glares */}
+              <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-10 overflow-hidden rounded-[2rem]">
+                <div className="absolute top-0 left-[-50%] w-[100%] h-[100%] bg-gradient-to-tr from-transparent via-white/5 to-transparent rotate-12 transition-transform duration-1000 group-hover:translate-x-[150%]" />
+              </div>
+            </div>
+            
+            {/* Phone Buttons */}
+            <div className="absolute top-24 -left-[7px] w-[3px] h-12 bg-[#1a1a1e] rounded-l-md border-l border-white/10" />
+            <div className="absolute top-40 -left-[7px] w-[3px] h-12 bg-[#1a1a1e] rounded-l-md border-l border-white/10" />
+            <div className="absolute top-32 -right-[7px] w-[3px] h-20 bg-[#1a1a1e] rounded-r-md border-r border-white/10" />
+          </div>
+        </div>
       </div>
     </SlideShell>
   );
