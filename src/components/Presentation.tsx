@@ -135,11 +135,11 @@ export function Presentation() {
             <motion.div
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full glass border-2 border-primary/30 flex items-center justify-center p-2.5 bg-white/5 glow"
+              className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full glass border-2 border-primary/30 flex items-center justify-center p-1.5 bg-white/5 glow"
             >
               <img src={uniLogo} alt="Hebron University" className="w-full h-full object-contain drop-shadow-md" />
             </motion.div>
-            <span className="text-[10px] md:text-[11px] font-bold text-primary tracking-widest uppercase">Hebron University</span>
+            <span className="text-[8px] md:text-[9px] font-bold text-primary tracking-widest uppercase">Hebron University</span>
           </motion.div>
 
           {/* Telemedicine Logo - LEFT (last in RTL) */}
@@ -152,11 +152,11 @@ export function Presentation() {
             <motion.div
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full glass border-2 border-primary/30 flex items-center justify-center p-2.5 glow"
+              className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full glass border-2 border-primary/30 flex items-center justify-center p-1.5 glow"
             >
               <img src={teleLogo} alt="Telemedicine" className="w-full h-full object-contain drop-shadow-lg" />
             </motion.div>
-            <span className="text-[10px] md:text-[11px] font-bold text-primary tracking-widest uppercase">Telemedicine</span>
+            <span className="text-[8px] md:text-[9px] font-bold text-primary tracking-widest uppercase">Telemedicine</span>
           </motion.div>
         </div>
       )}
