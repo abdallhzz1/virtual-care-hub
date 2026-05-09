@@ -33,12 +33,15 @@ export function CoverSlide() {
         </div>
 
         {/* Year Badge (center) */}
-        <div className="glass px-6 py-2.5 rounded-2xl border border-white/10 shadow-lg mt-4">
-          <p className="text-primary font-bold text-sm md:text-lg tracking-wide flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+        <motion.div
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          className="glass px-8 md:px-10 py-3 md:py-4 rounded-2xl border border-white/10 shadow-lg mt-12 glow"
+        >
+          <p className="text-primary font-bold text-base md:text-xl tracking-wide flex items-center gap-2">
             كلية تكنولوجيا المعلومات
           </p>
-        </div>
+        </motion.div>
 
         {/* System Logo - LEFT (last in RTL) */}
         <div className="flex flex-col items-center gap-2">
@@ -88,7 +91,7 @@ export function CoverSlide() {
         {/* Supervisor - no card, just text, centered */}
         <div className="flex flex-col items-center gap-1 -mt-4 mb-2">
           <span className="text-lg md:text-2xl font-bold text-primary uppercase tracking-[0.2em]">إشراف :</span>
-          <span className="text-2xl md:text-3xl font-extrabold gradient-text">د. نبيل حساسنة</span>
+          <span className="text-2xl md:text-3xl font-extrabold text-black">د. نبيل حساسنة</span>
         </div>
 
         {/* Divider */}

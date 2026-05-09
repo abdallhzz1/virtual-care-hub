@@ -23,6 +23,7 @@ import { UseCaseSlide } from "./slides/UseCaseSlide";
 import { ErdSlide } from "./slides/ErdSlide";
 import { SystemSlide } from "./slides/SystemSlide";
 import { ScenarioSlide } from "./slides/ScenarioSlide";
+import { ResearchSlide } from "./slides/ResearchSlide";
 import { ThanksSlide } from "./slides/ThanksSlide";
 import teleLogo from "../assets/telemedicine-logo.png";
 import uniLogo from "../assets/hebron-university-logo.png";
@@ -111,12 +112,17 @@ export function Presentation() {
       case "erd": return <ErdSlide />;
       case "system": return <SystemSlide onStart={() => setIndex(slides.findIndex((s) => s.id === "scenario"))} />;
       case "scenario": return <ScenarioSlide />;
+      case "research": return <ResearchSlide />;
       case "thanks": return <ThanksSlide />;
       default: return null;
     }
   };
 
   const progress = ((index + 1) / slides.length) * 100;
+  
+  // Check if current slide needs logo adjustment (slides 2, 3, 4, 5, 10 = indices 1, 2, 3, 4, 9)
+  const slidesNeedingAdjustment = [1, 2, 3, 4, 9];
+  const needsLogoAdjustment = slidesNeedingAdjustment.includes(index);
 
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-background text-foreground">
@@ -128,7 +134,7 @@ export function Presentation() {
           {/* University Logo - RIGHT (first in RTL) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={{ opacity: 1, x: needsLogoAdjustment ? 20 : 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex flex-col items-center gap-2"
           >

@@ -45,14 +45,14 @@ const techs = [
 
 export function TechSlide() {
   return (
-    <SlideShell number={4} eyebrow="Tech Stack" title="التقنيات المستخدمة">
+    <SlideShell title="التقنيات المستخدمة">
       <div className="flex flex-wrap justify-center gap-4 lg:gap-5 max-w-7xl mx-auto">
         {techs.map((t, i) => (
           <motion.div
             key={t.name}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 + i * 0.12, ease: "backOut" }}
+            transition={{ duration: 0.6, delay: (i + 1) * 1, ease: "backOut" }}
             whileHover={{ y: -6, scale: 1.02 }}
             className="w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] glass rounded-3xl p-5 md:p-6 text-center group cursor-default border border-white/10 flex flex-col items-center relative overflow-hidden"
           >

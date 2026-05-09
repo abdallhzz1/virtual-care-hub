@@ -13,7 +13,7 @@ export function ErdSlide() {
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 1 }}
           className="lg:col-span-5 flex flex-col gap-8 text-right order-2 lg:order-1"
         >
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight flex items-baseline gap-3 flex-wrap justify-start" dir="rtl">
@@ -38,7 +38,7 @@ export function ErdSlide() {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 2 }}
           className="lg:col-span-7 order-1 lg:order-2"
         >
           <div className="relative group glass-strong rounded-[2.5rem] border border-white/10 overflow-hidden shadow-2xl p-2 bg-white/5">

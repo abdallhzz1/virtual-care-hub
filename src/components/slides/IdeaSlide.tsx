@@ -35,14 +35,14 @@ const features = [
 
 export function IdeaSlide() {
   return (
-    <SlideShell number={3} eyebrow="The Idea" title="فكرة المشروع">
+    <SlideShell title="فكرة المشروع">
       <div className="grid md:grid-cols-2 gap-4 lg:gap-5 max-w-7xl mx-auto">
         {features.map((f, i) => (
           <motion.div
             key={f.title}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+            transition={{ duration: 0.5, delay: (i + 1) * 1 }}
             whileHover={{ y: -6, scale: 1.02 }}
             className={`glass rounded-3xl p-6 md:p-7 text-right group border border-white/10 relative overflow-hidden bg-gradient-to-br ${f.color}`}
           >

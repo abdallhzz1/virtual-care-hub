@@ -86,16 +86,10 @@ export function ScenarioSlide() {
   const bothStreams = mediaStream1 && mediaStream2;
 
   return (
-    <SlideShell number={9} eyebrow="Scenario Flow" title="سيناريو العمل التفاعلي">
-      <div className="relative w-full h-full">
-        {/* Main Content (Shifted when phone is active) */}
-        <div className={`transition-all duration-500 flex flex-col h-full ${
-          bothStreams 
-            ? "w-[calc(100%-520px)] xl:w-[calc(100%-580px)] ml-auto" 
-            : anyStream 
-            ? "w-[calc(100%-300px)] xl:w-[calc(100%-340px)] ml-auto" 
-            : "w-full"
-        }`}>
+    <SlideShell title="سيناريو العمل التفاعلي" centered>
+      <div className="relative w-full h-full flex flex-row-reverse items-center">
+        {/* Main Content - Left side */}
+        <div className="flex-1 flex flex-col h-full">
           
           {/* Progress bar & Header Actions */}
           <div className="mb-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
@@ -131,25 +125,12 @@ export function ScenarioSlide() {
                 }`}
               >
                 {mediaStream1 ? <X className="w-3 h-3" /> : <MonitorSmartphone className="w-3 h-3" />}
-                {mediaStream1 ? "إيقاف شاشة 1" : "بث شاشة 1"}
-              </button>
-
-              {/* Stream 2 Toggle */}
-              <button
-                onClick={mediaStream2 ? () => stopLiveDemo(2) : () => startLiveDemo(2)}
-                className={`glass rounded-full px-4 py-2 flex items-center gap-2 text-[11px] font-bold transition-all shadow-lg shrink-0 ${
-                  mediaStream2
-                    ? "bg-red-500/20 text-red-500 border border-red-500/50"
-                    : "gradient-primary text-white"
-                }`}
-              >
-                {mediaStream2 ? <X className="w-3 h-3" /> : <MonitorSmartphone className="w-3 h-3" />}
-                {mediaStream2 ? "إيقاف شاشة 2" : "بث شاشة 2"}
+                {mediaStream1 ? "إيقاف شاشة" : "بث شاشة"}
               </button>
             </div>
           </div>
 
-          <div className={`grid gap-6 flex-1 transition-all duration-500 ${anyStream ? "lg:grid-cols-[220px_1fr]" : "lg:grid-cols-[300px_1fr]"}`}>
+          <div className={`grid gap-2 flex-1 transition-all duration-500 ${anyStream ? "lg:grid-cols-[350px_1fr]" : "lg:grid-cols-[350px_1fr]"}`}>
             {/* Steps list */}
             <div className="glass rounded-3xl p-3 max-h-[400px] overflow-y-auto">
               <div className="space-y-1">
@@ -196,7 +177,7 @@ export function ScenarioSlide() {
                   animate={{ opacity: 1, x: 0, scale: 1 }}
                   exit={{ opacity: 0, x: 40, scale: 0.97 }}
                   transition={{ duration: 0.45, ease: "easeOut" }}
-                  className="glass-strong rounded-3xl p-8 lg:p-10 h-full flex flex-col"
+                  className="glass-strong rounded-2xl p-5 md:p-6 h-full flex flex-col max-w-lg"
                 >
                   <div className="flex items-start justify-between mb-6">
                     <div className="flex items-center gap-4">
@@ -287,56 +268,8 @@ export function ScenarioSlide() {
           </div>
         </div>
 
-        {/* Live Phone Mockup Frames - Support for Dual Screens */}
-        <div 
-          className={`absolute top-[-110px] bottom-0 left-[-80px] xl:left-[-140px] z-50 flex items-start justify-start gap-16 pointer-events-none transition-all duration-500 ${
-            bothStreams ? "scale-[0.96] origin-top-left" : "scale-100 origin-top-left"
-          }`}
-        >
-          <AnimatePresence mode="popLayout">
-            {mediaStream1 && (
-              <motion.div
-                key="phone1"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                className="relative h-full aspect-[9/19] bg-zinc-950 rounded-[3rem] border-[10px] border-zinc-800 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col pointer-events-auto"
-              >
-                {/* Individual Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[35%] h-7 bg-zinc-800 rounded-b-2xl z-20 flex items-center justify-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-zinc-900"></div>
-                  <div className="w-1 h-1 rounded-full bg-blue-500/40 animate-pulse"></div>
-                </div>
-                <div className="flex-1 w-full bg-zinc-900 relative">
-                  <video ref={videoRef1} autoPlay playsInline className="relative z-10 w-full h-full object-cover object-top" />
-                </div>
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[35%] h-1 bg-white/20 rounded-full z-20"></div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <AnimatePresence mode="popLayout">
-            {mediaStream2 && (
-              <motion.div
-                key="phone2"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                className="relative h-full aspect-[9/19] bg-zinc-950 rounded-[3rem] border-[10px] border-zinc-800 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col pointer-events-auto"
-              >
-                {/* Individual Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[35%] h-7 bg-zinc-800 rounded-b-2xl z-20 flex items-center justify-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-zinc-900"></div>
-                  <div className="w-1 h-1 rounded-full bg-blue-500/40 animate-pulse"></div>
-                </div>
-                <div className="flex-1 w-full bg-zinc-900 relative">
-                  <video ref={videoRef2} autoPlay playsInline className="relative z-10 w-full h-full object-cover object-top" />
-                </div>
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[35%] h-1 bg-white/20 rounded-full z-20"></div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+        {/* Phone mockup area - Right side (RTL) */}
+        <div className="flex-[0.5] h-full" />
       </div>
     </SlideShell>
   );

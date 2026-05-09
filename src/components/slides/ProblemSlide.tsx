@@ -4,12 +4,12 @@ import { SlideShell } from "../SlideShell";
 
 export function ProblemSlide() {
   return (
-    <SlideShell number={2} eyebrow="The Problem" title="المشكلة">
+    <SlideShell title="المشكلة">
       <div className="flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 1 }}
           className="relative glass-strong rounded-[2.5rem] p-8 md:p-10 lg:p-12 border border-white/10 w-full max-w-7xl mx-auto overflow-hidden group shadow-2xl"
         >
           {/* Decorative Background Elements */}
@@ -24,7 +24,7 @@ export function ProblemSlide() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
+              transition={{ duration: 0.7, delay: 1.5 }}
               className="mb-5"
             >
               تتمثّل المشكلة في <span className="text-red-500 font-bold">صعوبة وصول المرضى</span> إلى الخدمات الطبية الأساسية، وذلك بسبب <span className="text-red-500 font-bold">القيود على الحركة</span> من ناحية الحواجز العسكرية وإغلاقات الطرق المستمرة، أو بسبب بعد المسافة بين التجمعات السكانية النائية والمراكز الطبية.
@@ -33,7 +33,7 @@ export function ProblemSlide() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.7 }}
+              transition={{ duration: 0.7, delay: 2 }}
             >
               مما يؤدي إلى <span className="text-red-500 font-bold">انقطاع المتابعة العلاجية</span> خاصة لمرضى الأمراض المزمنة والحالات الحساسة مثل مرضى الحالات النفسية، كما أن الاعتماد على الزيارات التقليدية يتطلب <span className="text-red-500 font-bold">جهدًا ووقتًا وتكاليف مادية مرتفعة</span>، ما يبرز الحاجة إلى <span className="text-primary font-bold">منصة رقمية للرعاية الطبية الافتراضية</span> تضمن المتابعة المستمرة والتواصل الفعّال.
             </motion.p>

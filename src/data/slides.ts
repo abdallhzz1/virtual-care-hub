@@ -14,6 +14,7 @@ export const slides: Slide[] = [
   { id: "erd", title: "ERD Diagram" },
   { id: "system", title: "عرض النظام" },
   { id: "scenario", title: "سيناريو العمل" },
+  { id: "research", title: "ملخص البحث العلمي" },
   { id: "thanks", title: "تم بحمد الله" },
 ];
 

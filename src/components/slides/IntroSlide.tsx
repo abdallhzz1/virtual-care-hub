@@ -4,12 +4,12 @@ import { SlideShell } from "../SlideShell";
 
 export function IntroSlide() {
   return (
-    <SlideShell number={1} eyebrow="Introduction" title="مقدمة المشروع">
+    <SlideShell title="مقدمة المشروع">
       <div className="flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
           className="relative glass-strong rounded-[2.5rem] p-8 md:p-10 lg:p-12 border border-white/10 w-full max-w-7xl mx-auto overflow-hidden group shadow-2xl"
         >
           {/* Decorative Background Elements */}
@@ -24,7 +24,7 @@ export function IntroSlide() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
+              transition={{ duration: 0.7, delay: 1.5 }}
               className="mb-5"
             >
               في ظلِّ التطوّرات التكنولوجية المتسارعة التي يشهدها العالم، وخصوصًا في فلسطين، وبما تمرّ به البلاد من لأواء وبلاء وغلاء، نسألُ اللهَ العليَّ القدير أن يُفرِّج عنا البلاء واللأواء والغلاء.
@@ -33,7 +33,7 @@ export function IntroSlide() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.7 }}
+              transition={{ duration: 0.7, delay: 2 }}
             >
               ومن هذا المنطلق جاءت فكرة مشروع التخرّج، المتمثّلة في تصميم وتطوير <span className="text-primary font-bold">منصّة للرعاية الطبية الافتراضية</span>، تهدف إلى تحسين مستوى الخدمات الصحية من خلال إتاحة الاستشارات الطبية عن بُعد، وتعزيز كفاءة الإتصال والتواصل بين مقدّمي الرعاية الصحية والمرضى، بما يلبّي احتياجات المجتمع ويواكب متطلّبات التحوّل الرقمي.
             </motion.p>
