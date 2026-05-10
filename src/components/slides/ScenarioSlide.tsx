@@ -77,63 +77,53 @@ export function ScenarioSlide() {
     }
   };
 
-  const step = scenarioSteps[active];
-  const actor = actorMeta[step.actor];
-  const IconComponent = (Icons[step.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>) || Icons.Circle;
   const progress = ((active + 1) / scenarioSteps.length) * 100;
+
 
   const anyStream = mediaStream1 || mediaStream2;
   const bothStreams = mediaStream1 && mediaStream2;
 
   return (
-    <SlideShell title="سيناريو العمل التفاعلي" centered>
-      <div className="relative w-full h-full flex flex-row items-center">
-        {/* Main Content - Left side */}
-        <div className="flex-1 flex flex-col h-full">
+    <SlideShell title="سيناريو العمل التفاعلي">
+      <div className="relative w-full h-full flex flex-col pt-4">
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr_1fr] gap-4 flex-1 items-center">
           
-          {/* Progress bar & Header Actions */}
-          <div className="mb-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <div className="flex-1 flex items-center gap-4 w-full">
-              <div className="flex-1 h-2 rounded-full bg-muted overflow-hidden">
-                <motion.div
-                  className="h-full gradient-primary glow"
-                  initial={false}
-                  animate={{ width: `${progress}%` }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                />
-              </div>
-              <span className="text-sm font-bold text-muted-foreground tabular-nums">
-                {active + 1} / {scenarioSteps.length}
-              </span>
+          {/* Index Card with Integrated Controls */}
+          <div className="glass rounded-[2rem] overflow-hidden flex flex-col h-[580px] border-white/10 shadow-2xl">
+            {/* Card Header with Controls */}
+            <div className="p-4 bg-muted/30 border-b border-white/5 flex items-center justify-between gap-4">
               <button
                 onClick={() => setAutoplay((a) => !a)}
-                className="glass rounded-full p-2 hover:scale-110 transition-transform"
-                aria-label="autoplay"
+                className="glass rounded-full p-2 hover:scale-110 transition-transform shrink-0"
               >
-                {autoplay ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                {autoplay ? <Pause className="w-4 h-4 text-primary" /> : <Play className="w-4 h-4 text-primary" />}
               </button>
+              
+              <div className="flex-1 text-center">
+                <span className="text-[11px] font-bold text-muted-foreground tabular-nums">
+                   الخطوة {active + 1} من {scenarioSteps.length}
+                </span>
+              </div>
+
+              <div className="text-[10px] font-bold text-primary px-2 py-0.5 rounded-md bg-primary/10">
+                {Math.round(progress)}%
+              </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              {/* Stream 1 Toggle */}
-              <button
-                onClick={mediaStream1 ? () => stopLiveDemo(1) : () => startLiveDemo(1)}
-                className={`glass rounded-full px-4 py-2 flex items-center gap-2 text-[11px] font-bold transition-all shadow-lg shrink-0 ${
-                  mediaStream1
-                    ? "bg-red-500/20 text-red-500 border border-red-500/50"
-                    : "gradient-primary text-white"
-                }`}
-              >
-                {mediaStream1 ? <X className="w-3 h-3" /> : <MonitorSmartphone className="w-3 h-3" />}
-                {mediaStream1 ? "إيقاف شاشة" : "بث شاشة"}
-              </button>
+            {/* Integrated Progress Bar */}
+            <div className="h-1 bg-muted/20 w-full overflow-hidden">
+              <motion.div
+                className="h-full gradient-primary"
+                initial={false}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.5 }}
+              />
             </div>
-          </div>
 
-          <div className={`grid gap-2 flex-1 transition-all duration-500 ${anyStream ? "lg:grid-cols-[350px_1fr]" : "lg:grid-cols-[350px_1fr]"}`}>
             {/* Steps list */}
-            <div className="glass rounded-3xl p-4 h-[550px] overflow-y-auto custom-scrollbar">
-              <div className="space-y-1">
+            <div className="flex-1 overflow-y-auto custom-scrollbar p-3">
+              <div className="space-y-2">
                 {scenarioSteps.map((s, i) => {
                   const sActor = actorMeta[s.actor];
                   const isActive = i === active;
@@ -141,10 +131,10 @@ export function ScenarioSlide() {
                     <button
                       key={s.id}
                       onClick={() => setActive(i)}
-                      className={`w-full text-right rounded-2xl p-3 flex items-center gap-3 transition-all ${
+                      className={`w-full text-right rounded-xl p-3 flex items-center gap-3 transition-all duration-300 ${
                         isActive
-                          ? "gradient-primary text-primary-foreground glow"
-                          : "hover:bg-muted/60"
+                          ? "gradient-primary text-primary-foreground glow shadow-md"
+                          : "hover:bg-muted/40"
                       }`}
                     >
                       <span
@@ -155,10 +145,10 @@ export function ScenarioSlide() {
                         {s.id}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <p className={`text-sm font-bold truncate ${isActive ? "" : "text-foreground"}`}>
+                        <p className={`text-xs font-bold truncate ${isActive ? "" : "text-foreground"}`}>
                           {s.title}
                         </p>
-                        <p className={`text-[11px] truncate ${isActive ? "opacity-80" : "text-muted-foreground"}`}>
+                        <p className={`text-[10px] truncate mt-0.5 ${isActive ? "opacity-80" : "text-muted-foreground"}`}>
                           {sActor.label}
                         </p>
                       </div>
@@ -167,164 +157,92 @@ export function ScenarioSlide() {
                 })}
               </div>
             </div>
+          </div>
 
-            {/* Active step detail */}
-            <div className="relative h-[550px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={step.id}
-                  initial={{ opacity: 0, x: -40, scale: 0.97 }}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: 40, scale: 0.97 }}
-                  transition={{ duration: 0.45, ease: "easeOut" }}
-                  className="glass-strong rounded-2xl p-5 md:p-6 h-full flex flex-col max-w-lg"
-                >
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="flex items-center gap-4">
-                      <motion.div
-                        initial={{ scale: 0, rotate: -180 }}
-                        animate={{ scale: 1, rotate: 0 }}
-                        transition={{ duration: 0.6, ease: "backOut" }}
-                        className="relative w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl flex items-center justify-center text-white shrink-0"
-                        style={{
-                          background: `linear-gradient(135deg, ${actor.color}, var(--color-primary))`,
-                          boxShadow: `0 10px 40px -10px ${actor.color}`,
-                        }}
-                      >
-                        <IconComponent className="w-8 h-8 md:w-10 md:h-10" />
-                      </motion.div>
-                      <div>
-                        <span
-                          className="inline-block px-3 py-1 rounded-full text-[10px] md:text-xs font-bold mb-2 text-white"
-                          style={{ background: actor.color }}
-                        >
-                          {actor.label}
-                        </span>
-                        <p className="text-[10px] md:text-xs text-muted-foreground tracking-widest font-semibold">
-                          STEP {String(step.id).padStart(2, "0")}
-                        </p>
+          {/* Phone Mockup 1 Container */}
+          <div className="flex flex-col items-center justify-center gap-6">
+            <div className="relative w-[270px] h-[580px] group shrink-0">
+              {/* Ultra-thin bezel premium frame */}
+              <div className="absolute -inset-1 bg-gradient-to-b from-white/20 to-black/20 rounded-[2.8rem] blur-[1px]" />
+              <div className="relative w-full h-full bg-[#050505] rounded-[2.7rem] p-[4px] shadow-2xl ring-1 ring-white/10 overflow-hidden">
+                <div className="relative w-full h-full bg-black rounded-[2.4rem] overflow-hidden">
+                  {mediaStream1 ? (
+                    <video 
+                      ref={videoRef1} 
+                      autoPlay 
+                      playsInline 
+                      className="w-full h-full object-cover scale-[1.05] -translate-y-[1.5%]" 
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-4">
+                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-2">
+                        <MonitorSmartphone className="w-7 h-7 text-primary/40" />
                       </div>
+                      <p className="text-[10px] text-muted-foreground/40">بانتظار البث الأول...</p>
                     </div>
-                  </div>
-
-                  <motion.h3
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.15 }}
-                    className="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-5 gradient-text leading-tight"
-                  >
-                    {step.title}
-                  </motion.h3>
-
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.25 }}
-                    className="text-base md:text-lg leading-relaxed md:leading-loose text-foreground/80 flex-1"
-                  >
-                    {step.description}
-                  </motion.p>
-
-                  {/* Step dots */}
-                  <div className="flex items-center justify-center gap-1.5 mt-6 flex-wrap">
-                    {scenarioSteps.map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setActive(i)}
-                        className={`h-1.5 rounded-full transition-all ${
-                          i === active
-                            ? "w-8 bg-primary glow"
-                            : i < active
-                            ? "w-1.5 bg-primary/60"
-                            : "w-1.5 bg-muted"
-                        }`}
-                        aria-label={`Step ${i + 1}`}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Nav */}
-                  <div className="flex items-center justify-between mt-6">
-                    <button
-                      onClick={() => setActive((p) => Math.max(0, p - 1))}
-                      disabled={active === 0}
-                      className="glass rounded-full px-4 py-2 md:px-5 md:py-2.5 flex items-center gap-2 font-semibold text-xs md:text-sm disabled:opacity-40 hover:scale-105 transition-transform"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                      السابق
-                    </button>
-                    <button
-                      onClick={() => setActive((p) => Math.min(scenarioSteps.length - 1, p + 1))}
-                      disabled={active === scenarioSteps.length - 1}
-                      className="gradient-primary text-primary-foreground rounded-full px-4 py-2 md:px-5 md:py-2.5 flex items-center gap-2 font-semibold text-xs md:text-sm disabled:opacity-40 hover:scale-105 transition-transform glow"
-                    >
-                      التالي
-                      <ChevronLeft className="w-4 h-4" />
-                    </button>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
-
-        {/* Phone mockup area - Right side (RTL) */}
-        <div className="hidden lg:flex flex-[0.45] h-full items-center justify-center pr-8">
-          <div className="relative w-[280px] h-[580px] group">
-            {/* Phone Frame Glow */}
-            <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            
-            {/* Phone Outer Frame */}
-            <div className="relative w-full h-full bg-[#0a0a0c] rounded-[3rem] p-3 shadow-2xl border-[6px] border-[#1a1a1e] ring-1 ring-white/10 overflow-hidden">
-              {/* Speaker/Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-[#1a1a1e] rounded-b-2xl z-20 flex items-center justify-center">
-                <div className="w-10 h-1 bg-white/5 rounded-full" />
-              </div>
-
-              {/* Screen Content */}
-              <div className="relative w-full h-full bg-black rounded-[2rem] overflow-hidden border border-white/5">
-                {mediaStream1 ? (
-                  <motion.video
-                    ref={videoRef1}
-                    autoPlay
-                    playsInline
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-4">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-2">
-                      <MonitorSmartphone className="w-8 h-8 text-primary/60" />
-                    </div>
-                    <p className="text-xs font-bold text-muted-foreground leading-relaxed">
-                      بانتظار بث شاشة التطبيق...
-                    </p>
-                    <p className="text-[10px] text-muted-foreground/60 leading-relaxed">
-                      استخدم برنامج Mirroring لعرض شاشة هاتفك على الكمبيوتر، ثم اضغط "بث شاشة" أعلاه واختبر النافذة.
-                    </p>
-                    
-                    {/* Pulsing indicator */}
-                    <div className="flex gap-1.5 pt-4">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/40 animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/40 animate-bounce" style={{ animationDelay: '200ms' }} />
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/40 animate-bounce" style={{ animationDelay: '400ms' }} />
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Reflections/Glares */}
-              <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-10 overflow-hidden rounded-[2rem]">
-                <div className="absolute top-0 left-[-50%] w-[100%] h-[100%] bg-gradient-to-tr from-transparent via-white/5 to-transparent rotate-12 transition-transform duration-1000 group-hover:translate-x-[150%]" />
+                  )}
+                </div>
               </div>
             </div>
-            
-            {/* Phone Buttons */}
-            <div className="absolute top-24 -left-[7px] w-[3px] h-12 bg-[#1a1a1e] rounded-l-md border-l border-white/10" />
-            <div className="absolute top-40 -left-[7px] w-[3px] h-12 bg-[#1a1a1e] rounded-l-md border-l border-white/10" />
-            <div className="absolute top-32 -right-[7px] w-[3px] h-20 bg-[#1a1a1e] rounded-r-md border-r border-white/10" />
+
+            {/* Stream 1 Toggle Button - Below Phone */}
+            <button
+              onClick={mediaStream1 ? () => stopLiveDemo(1) : () => startLiveDemo(1)}
+              className={`rounded-full px-6 py-2 flex items-center gap-2 text-[10px] font-bold transition-all shadow-xl hover:scale-105 active:scale-95 ${
+                mediaStream1
+                  ? "bg-red-500 text-white"
+                  : "gradient-primary text-white"
+              }`}
+            >
+              {mediaStream1 ? <X className="w-3.5 h-3.5" /> : <MonitorSmartphone className="w-3.5 h-3.5" />}
+              {mediaStream1 ? "إيقاف بث 1" : "بث شاشة 1"}
+            </button>
           </div>
+
+          {/* Phone Mockup 2 Container */}
+          <div className="flex flex-col items-center justify-center gap-6">
+            <div className="relative w-[270px] h-[580px] group shrink-0">
+              {/* Ultra-thin bezel premium frame */}
+              <div className="absolute -inset-1 bg-gradient-to-b from-white/20 to-black/20 rounded-[2.8rem] blur-[1px]" />
+              <div className="relative w-full h-full bg-[#050505] rounded-[2.7rem] p-[4px] shadow-2xl ring-1 ring-white/10 overflow-hidden">
+                <div className="relative w-full h-full bg-black rounded-[2.4rem] overflow-hidden">
+                  {mediaStream2 ? (
+                    <video 
+                      ref={videoRef2} 
+                      autoPlay 
+                      playsInline 
+                      className="w-full h-full object-cover scale-[1.05] -translate-y-[1.5%]" 
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-4">
+                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-2">
+                        <MonitorSmartphone className="w-7 h-7 text-primary/40" />
+                      </div>
+                      <p className="text-[10px] text-muted-foreground/40">بانتظار البث الثاني...</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Stream 2 Toggle Button - Below Phone */}
+            <button
+              onClick={mediaStream2 ? () => stopLiveDemo(2) : () => startLiveDemo(2)}
+              className={`rounded-full px-6 py-2 flex items-center gap-2 text-[10px] font-bold transition-all shadow-xl hover:scale-105 active:scale-95 ${
+                mediaStream2
+                  ? "bg-red-500 text-white"
+                  : "gradient-primary text-white"
+              }`}
+            >
+              {mediaStream2 ? <X className="w-3.5 h-3.5" /> : <MonitorSmartphone className="w-3.5 h-3.5" />}
+              {mediaStream2 ? "إيقاف بث 2" : "بث شاشة 2"}
+            </button>
+          </div>
+
+
+
+
+
         </div>
       </div>
     </SlideShell>
