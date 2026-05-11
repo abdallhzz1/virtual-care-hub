@@ -5,6 +5,7 @@ export interface Slide {
 
 export const slides: Slide[] = [
   { id: "cover", title: "الغلاف" },
+  { id: "toc", title: "فهرس العرض" },
   { id: "intro", title: "مقدمة المشروع" },
   { id: "problem", title: "المشكلة" },
   { id: "idea", title: "فكرة المشروع" },

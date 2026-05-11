@@ -158,14 +158,193 @@ export function ResearchSlide() {
     },
     {
       id: 4,
-      title: "عمارة النظام",
+      title: "نتائج الاستبيان - الأطباء",
       content: (
-        <div className="flex items-center justify-center h-full">
-          <ZoomableImage 
-            src={articImage} 
-            alt="System Architecture"
-            className="w-96 h-auto object-contain"
-          />
+        <div className="grid grid-cols-2 gap-4 h-full">
+          {/* Question 1 */}
+          <div className="glass rounded-lg p-4 border border-primary/20 flex flex-col justify-between">
+            <div>
+              <div className="text-sm font-semibold text-right mb-2 text-primary line-clamp-2">
+                وضوح الفكرة وسهولة البدء
+              </div>
+              <div className="text-sm text-muted-foreground mb-2">51 ردًا</div>
+            </div>
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-lg font-bold text-amber-500">4.63</span>
+                <div className="flex-1 h-2.5 rounded-full bg-muted mx-2 overflow-hidden">
+                  <div className="h-full bg-linear-to-r from-amber-400 to-amber-500 rounded-full" style={{width: "92.6%"}}></div>
+                </div>
+              </div>
+              <span className="text-sm text-muted-foreground text-right block">من 5</span>
+            </div>
+          </div>
+
+          {/* Question 2 */}
+          <div className="glass rounded-lg p-4 border border-blue-500/20 flex flex-col justify-between">
+            <div>
+              <div className="text-sm font-semibold text-right mb-2 text-blue-600 line-clamp-2">
+                تجربة الاستخدام أثناء الجلسة
+              </div>
+              <div className="text-sm text-muted-foreground mb-2">53 ردًا</div>
+            </div>
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-lg font-bold text-blue-500">4.45</span>
+                <div className="flex-1 h-2.5 rounded-full bg-muted mx-2 overflow-hidden">
+                  <div className="h-full bg-linear-to-r from-blue-400 to-blue-500 rounded-full" style={{width: "89%"}}></div>
+                </div>
+              </div>
+              <span className="text-sm text-muted-foreground text-right block">من 5</span>
+            </div>
+          </div>
+
+          {/* Question 3 */}
+          <div className="glass rounded-lg p-4 border border-cyan-500/20 flex flex-col justify-between">
+            <div>
+              <div className="text-sm font-semibold text-right mb-2 text-cyan-600 line-clamp-2">
+                إمكانية الاستخدام المستقبلي
+              </div>
+              <div className="text-sm text-muted-foreground mb-2">53 ردًا</div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-base font-bold text-green-500">98.1%</span>
+                <span className="text-sm text-green-600">نعم</span>
+                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
+                  <div className="h-full bg-linear-to-r from-green-400 to-green-500 rounded-full" style={{width: "98.1%"}}></div>
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-base font-bold text-red-500">1.9%</span>
+                <span className="text-sm text-red-600">لا</span>
+                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
+                  <div className="h-full bg-linear-to-r from-red-400 to-red-500 rounded-full" style={{width: "1.9%"}}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Question 4 */}
+          <div className="glass rounded-lg p-4 border border-green-500/20 flex flex-col justify-between">
+            <div>
+              <div className="text-sm font-semibold text-right mb-2 text-green-600 line-clamp-2">
+                التوصية للأطباء الآخرين
+              </div>
+              <div className="text-sm text-muted-foreground mb-2">53 ردًا</div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-base font-bold text-emerald-500">100%</span>
+                <span className="text-sm text-emerald-600">نعم</span>
+                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
+                  <div className="h-full bg-linear-to-r from-emerald-400 to-emerald-500 rounded-full" style={{width: "100%"}}></div>
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-base font-bold text-slate-500">0%</span>
+                <span className="text-sm text-slate-600">لا</span>
+                <div className="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 5,
+      title: "نتائج الاستبيان - المرضى",
+      content: (
+        <div className="grid grid-cols-2 gap-4 h-full">
+          {/* Question 1 */}
+          <div className="glass rounded-lg p-4 border border-primary/20 flex flex-col justify-between">
+            <div>
+              <div className="text-sm font-semibold text-right mb-2 text-primary line-clamp-2">
+                وضوح الفكرة وسهولة الاستخدام
+              </div>
+              <div className="text-sm text-muted-foreground mb-2">52 ردًا</div>
+            </div>
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-lg font-bold text-amber-500">4.52</span>
+                <div className="flex-1 h-2.5 rounded-full bg-muted mx-2 overflow-hidden">
+                  <div className="h-full bg-linear-to-r from-amber-400 to-amber-500 rounded-full" style={{width: "90.4%"}}></div>
+                </div>
+              </div>
+              <span className="text-sm text-muted-foreground text-right block">من 5</span>
+            </div>
+          </div>
+
+          {/* Question 2 */}
+          <div className="glass rounded-lg p-4 border border-blue-500/20 flex flex-col justify-between">
+            <div>
+              <div className="text-sm font-semibold text-right mb-2 text-blue-600 line-clamp-2">
+                جودة جلسة الفيديو الطبية
+              </div>
+              <div className="text-sm text-muted-foreground mb-2">52 ردًا</div>
+            </div>
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-lg font-bold text-blue-500">4.44</span>
+                <div className="flex-1 h-2.5 rounded-full bg-muted mx-2 overflow-hidden">
+                  <div className="h-full bg-linear-to-r from-blue-400 to-blue-500 rounded-full" style={{width: "88.8%"}}></div>
+                </div>
+              </div>
+              <span className="text-sm text-muted-foreground text-right block">من 5</span>
+            </div>
+          </div>
+
+          {/* Question 3 */}
+          <div className="glass rounded-lg p-4 border border-cyan-500/20 flex flex-col justify-between">
+            <div>
+              <div className="text-sm font-semibold text-right mb-2 text-cyan-600 line-clamp-2">
+                الاستخدام بدل الزيارات التقليدية
+              </div>
+              <div className="text-sm text-muted-foreground mb-2">52 ردًا</div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-base font-bold text-green-500">96.2%</span>
+                <span className="text-sm text-green-600">نعم</span>
+                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
+                  <div className="h-full bg-linear-to-r from-green-400 to-green-500 rounded-full" style={{width: "96.2%"}}></div>
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-base font-bold text-red-500">3.8%</span>
+                <span className="text-sm text-red-600">لا</span>
+                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
+                  <div className="h-full bg-linear-to-r from-red-400 to-red-500 rounded-full" style={{width: "3.8%"}}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Question 4 */}
+          <div className="glass rounded-lg p-4 border border-green-500/20 flex flex-col justify-between">
+            <div>
+              <div className="text-sm font-semibold text-right mb-2 text-green-600 line-clamp-2">
+                التوصية للمرضى الآخرين
+              </div>
+              <div className="text-sm text-muted-foreground mb-2">52 ردًا</div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-base font-bold text-emerald-500">98.1%</span>
+                <span className="text-sm text-emerald-600">نعم</span>
+                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
+                  <div className="h-full bg-linear-to-r from-emerald-400 to-emerald-500 rounded-full" style={{width: "98.1%"}}></div>
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-base font-bold text-red-500">1.9%</span>
+                <span className="text-sm text-red-600">لا</span>
+                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
+                  <div className="h-full bg-linear-to-r from-red-400 to-red-500 rounded-full" style={{width: "1.9%"}}></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       ),
     },

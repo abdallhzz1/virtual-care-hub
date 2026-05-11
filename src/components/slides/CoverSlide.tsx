@@ -36,10 +36,13 @@ export function CoverSlide() {
         <motion.div
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          className="glass px-8 md:px-10 py-3 md:py-4 rounded-2xl border border-white/10 shadow-lg mt-12 glow"
+          className="glass px-8 md:px-10 py-3 md:py-4 rounded-2xl border border-white/10 shadow-lg mt-12 glow flex flex-col items-center gap-1"
         >
-          <p className="text-primary font-bold text-base md:text-xl tracking-wide flex items-center gap-2">
+          <p className="text-primary font-bold text-base md:text-xl tracking-wide">
             كلية تكنولوجيا المعلومات
+          </p>
+          <p className="text-primary/80 font-semibold text-sm md:text-base tracking-wide">
+            تخصص علم الحاسوب
           </p>
         </motion.div>
 

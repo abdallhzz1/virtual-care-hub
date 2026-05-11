@@ -14,6 +14,7 @@ import {
 import { slides } from "@/data/slides";
 import { MedicalBackground } from "./MedicalBackground";
 import { CoverSlide } from "./slides/CoverSlide";
+import { TableOfContentsSlide } from "./slides/TableOfContentsSlide";
 import { IntroSlide } from "./slides/IntroSlide";
 import { ProblemSlide } from "./slides/ProblemSlide";
 import { IdeaSlide } from "./slides/IdeaSlide";
@@ -103,6 +104,7 @@ export function Presentation() {
   const renderSlide = () => {
     switch (currentSlideId) {
       case "cover": return <CoverSlide />;
+      case "toc": return <TableOfContentsSlide />;
       case "intro": return <IntroSlide />;
       case "problem": return <ProblemSlide />;
       case "idea": return <IdeaSlide />;
@@ -120,8 +122,8 @@ export function Presentation() {
 
   const progress = ((index + 1) / slides.length) * 100;
   
-  // Check if current slide needs logo adjustment (slides 2, 3, 4, 5, 10 = indices 1, 2, 3, 4, 9)
-  const slidesNeedingAdjustment = [1, 2, 3, 4, 9];
+  // Check if current slide needs logo adjustment (slides 3, 4, 5, 6, 11 = indices 2, 3, 4, 5, 10)
+  const slidesNeedingAdjustment = [2, 3, 4, 5, 10];
   const needsLogoAdjustment = slidesNeedingAdjustment.includes(index);
 
   return (
