@@ -156,198 +156,6 @@ export function ResearchSlide() {
         </div>
       ),
     },
-    {
-      id: 4,
-      title: "نتائج الاستبيان - الأطباء",
-      content: (
-        <div className="grid grid-cols-2 gap-4 h-full">
-          {/* Question 1 */}
-          <div className="glass rounded-lg p-4 border border-primary/20 flex flex-col justify-between">
-            <div>
-              <div className="text-sm font-semibold text-right mb-2 text-primary line-clamp-2">
-                وضوح الفكرة وسهولة البدء
-              </div>
-              <div className="text-sm text-muted-foreground mb-2">51 ردًا</div>
-            </div>
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-lg font-bold text-amber-500">4.63</span>
-                <div className="flex-1 h-2.5 rounded-full bg-muted mx-2 overflow-hidden">
-                  <div className="h-full bg-linear-to-r from-amber-400 to-amber-500 rounded-full" style={{width: "92.6%"}}></div>
-                </div>
-              </div>
-              <span className="text-sm text-muted-foreground text-right block">من 5</span>
-            </div>
-          </div>
-
-          {/* Question 2 */}
-          <div className="glass rounded-lg p-4 border border-blue-500/20 flex flex-col justify-between">
-            <div>
-              <div className="text-sm font-semibold text-right mb-2 text-blue-600 line-clamp-2">
-                تجربة الاستخدام أثناء الجلسة
-              </div>
-              <div className="text-sm text-muted-foreground mb-2">53 ردًا</div>
-            </div>
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-lg font-bold text-blue-500">4.45</span>
-                <div className="flex-1 h-2.5 rounded-full bg-muted mx-2 overflow-hidden">
-                  <div className="h-full bg-linear-to-r from-blue-400 to-blue-500 rounded-full" style={{width: "89%"}}></div>
-                </div>
-              </div>
-              <span className="text-sm text-muted-foreground text-right block">من 5</span>
-            </div>
-          </div>
-
-          {/* Question 3 */}
-          <div className="glass rounded-lg p-4 border border-cyan-500/20 flex flex-col justify-between">
-            <div>
-              <div className="text-sm font-semibold text-right mb-2 text-cyan-600 line-clamp-2">
-                إمكانية الاستخدام المستقبلي
-              </div>
-              <div className="text-sm text-muted-foreground mb-2">53 ردًا</div>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <div className="flex flex-col items-center gap-2">
-                <span className="text-base font-bold text-green-500">98.1%</span>
-                <span className="text-sm text-green-600">نعم</span>
-                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
-                  <div className="h-full bg-linear-to-r from-green-400 to-green-500 rounded-full" style={{width: "98.1%"}}></div>
-                </div>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <span className="text-base font-bold text-red-500">1.9%</span>
-                <span className="text-sm text-red-600">لا</span>
-                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
-                  <div className="h-full bg-linear-to-r from-red-400 to-red-500 rounded-full" style={{width: "1.9%"}}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Question 4 */}
-          <div className="glass rounded-lg p-4 border border-green-500/20 flex flex-col justify-between">
-            <div>
-              <div className="text-sm font-semibold text-right mb-2 text-green-600 line-clamp-2">
-                التوصية للأطباء الآخرين
-              </div>
-              <div className="text-sm text-muted-foreground mb-2">53 ردًا</div>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <div className="flex flex-col items-center gap-2">
-                <span className="text-base font-bold text-emerald-500">100%</span>
-                <span className="text-sm text-emerald-600">نعم</span>
-                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
-                  <div className="h-full bg-linear-to-r from-emerald-400 to-emerald-500 rounded-full" style={{width: "100%"}}></div>
-                </div>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <span className="text-base font-bold text-slate-500">0%</span>
-                <span className="text-sm text-slate-600">لا</span>
-                <div className="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-700"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: 5,
-      title: "نتائج الاستبيان - المرضى",
-      content: (
-        <div className="grid grid-cols-2 gap-4 h-full">
-          {/* Question 1 */}
-          <div className="glass rounded-lg p-4 border border-primary/20 flex flex-col justify-between">
-            <div>
-              <div className="text-sm font-semibold text-right mb-2 text-primary line-clamp-2">
-                وضوح الفكرة وسهولة الاستخدام
-              </div>
-              <div className="text-sm text-muted-foreground mb-2">52 ردًا</div>
-            </div>
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-lg font-bold text-amber-500">4.52</span>
-                <div className="flex-1 h-2.5 rounded-full bg-muted mx-2 overflow-hidden">
-                  <div className="h-full bg-linear-to-r from-amber-400 to-amber-500 rounded-full" style={{width: "90.4%"}}></div>
-                </div>
-              </div>
-              <span className="text-sm text-muted-foreground text-right block">من 5</span>
-            </div>
-          </div>
-
-          {/* Question 2 */}
-          <div className="glass rounded-lg p-4 border border-blue-500/20 flex flex-col justify-between">
-            <div>
-              <div className="text-sm font-semibold text-right mb-2 text-blue-600 line-clamp-2">
-                جودة جلسة الفيديو الطبية
-              </div>
-              <div className="text-sm text-muted-foreground mb-2">52 ردًا</div>
-            </div>
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-lg font-bold text-blue-500">4.44</span>
-                <div className="flex-1 h-2.5 rounded-full bg-muted mx-2 overflow-hidden">
-                  <div className="h-full bg-linear-to-r from-blue-400 to-blue-500 rounded-full" style={{width: "88.8%"}}></div>
-                </div>
-              </div>
-              <span className="text-sm text-muted-foreground text-right block">من 5</span>
-            </div>
-          </div>
-
-          {/* Question 3 */}
-          <div className="glass rounded-lg p-4 border border-cyan-500/20 flex flex-col justify-between">
-            <div>
-              <div className="text-sm font-semibold text-right mb-2 text-cyan-600 line-clamp-2">
-                الاستخدام بدل الزيارات التقليدية
-              </div>
-              <div className="text-sm text-muted-foreground mb-2">52 ردًا</div>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <div className="flex flex-col items-center gap-2">
-                <span className="text-base font-bold text-green-500">96.2%</span>
-                <span className="text-sm text-green-600">نعم</span>
-                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
-                  <div className="h-full bg-linear-to-r from-green-400 to-green-500 rounded-full" style={{width: "96.2%"}}></div>
-                </div>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <span className="text-base font-bold text-red-500">3.8%</span>
-                <span className="text-sm text-red-600">لا</span>
-                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
-                  <div className="h-full bg-linear-to-r from-red-400 to-red-500 rounded-full" style={{width: "3.8%"}}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Question 4 */}
-          <div className="glass rounded-lg p-4 border border-green-500/20 flex flex-col justify-between">
-            <div>
-              <div className="text-sm font-semibold text-right mb-2 text-green-600 line-clamp-2">
-                التوصية للمرضى الآخرين
-              </div>
-              <div className="text-sm text-muted-foreground mb-2">52 ردًا</div>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <div className="flex flex-col items-center gap-2">
-                <span className="text-base font-bold text-emerald-500">98.1%</span>
-                <span className="text-sm text-emerald-600">نعم</span>
-                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
-                  <div className="h-full bg-linear-to-r from-emerald-400 to-emerald-500 rounded-full" style={{width: "98.1%"}}></div>
-                </div>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <span className="text-base font-bold text-red-500">1.9%</span>
-                <span className="text-sm text-red-600">لا</span>
-                <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
-                  <div className="h-full bg-linear-to-r from-red-400 to-red-500 rounded-full" style={{width: "1.9%"}}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-    },
   ];
 
   const content = researchContents[active];
@@ -395,36 +203,50 @@ export function ResearchSlide() {
           </div>
         </div>
 
-        {/* Navigation Dots and Buttons */}
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
+        {/* Premium Fixed Navigation Bar */}
+        <div className="flex justify-center mt-auto pt-4">
+          <div className="glass rounded-full px-6 py-3 flex items-center gap-6 shadow-xl border-white/10">
             <button
               onClick={() => setActive((p) => Math.max(0, p - 1))}
               disabled={active === 0}
-              className="glass rounded-full p-2 hover:scale-110 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
-              aria-label="Previous"
+              className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:bg-primary/20 hover:scale-110 active:scale-95 disabled:opacity-20 disabled:hover:scale-100"
+              aria-label="Previous Section"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronRight className="w-6 h-6 text-primary" />
             </button>
-            <div className="flex items-center gap-1.5">
+
+            <div className="flex items-center gap-3">
               {researchContents.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActive(i)}
-                  className={`h-2 rounded-full transition-all ${
-                    i === active ? "w-8 bg-primary glow" : "w-2 bg-muted hover:bg-muted/60"
-                  }`}
-                  aria-label={`Content ${i + 1}`}
-                />
+                  className="group relative flex items-center justify-center p-1"
+                  aria-label={`Go to section ${i + 1}`}
+                >
+                  <div 
+                    className={`transition-all duration-500 rounded-full ${
+                      i === active 
+                        ? "w-8 h-2.5 gradient-primary glow" 
+                        : "w-2.5 h-2.5 bg-muted hover:bg-primary/40"
+                    }`}
+                  />
+                  {i === active && (
+                    <motion.div 
+                      layoutId="nav-glow"
+                      className="absolute inset-0 bg-primary/20 blur-md rounded-full -z-10"
+                    />
+                  )}
+                </button>
               ))}
             </div>
+
             <button
               onClick={() => setActive((p) => Math.min(researchContents.length - 1, p + 1))}
               disabled={active === researchContents.length - 1}
-              className="glass rounded-full p-2 hover:scale-110 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
-              aria-label="Next"
+              className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:bg-primary/20 hover:scale-110 active:scale-95 disabled:opacity-20 disabled:hover:scale-100"
+              aria-label="Next Section"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronLeft className="w-6 h-6 text-primary" />
             </button>
           </div>
         </div>

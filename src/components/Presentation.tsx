@@ -25,6 +25,7 @@ import { ErdSlide } from "./slides/ErdSlide";
 import { SystemSlide } from "./slides/SystemSlide";
 import { ScenarioSlide } from "./slides/ScenarioSlide";
 import { ResearchSlide } from "./slides/ResearchSlide";
+import { SurveysSlide } from "./slides/SurveysSlide";
 import { ThanksSlide } from "./slides/ThanksSlide";
 import teleLogo from "../assets/telemedicine-logo.png";
 import uniLogo from "../assets/hebron-university-logo.png";
@@ -125,6 +126,7 @@ export function Presentation() {
           />
         );
       case "research": return <ResearchSlide />;
+      case "surveys": return <SurveysSlide />;
       case "thanks": return <ThanksSlide />;
       default: return null;
     }

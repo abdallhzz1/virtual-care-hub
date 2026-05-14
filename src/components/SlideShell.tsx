@@ -50,7 +50,7 @@ export function SlideShell({ children, eyebrow, title, number, centered = false 
           initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, delay: 0.5, ease: EASE }}
-          className="w-full mt-4"
+          className="w-full mt-4 flex-1 min-h-0"
         >
           {children}
         </motion.div>
