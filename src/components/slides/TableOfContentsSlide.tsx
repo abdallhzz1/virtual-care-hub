@@ -8,7 +8,7 @@ export function TableOfContentsSlide() {
 
   return (
     <SlideShell>
-      <div className="w-full h-full flex flex-col items-center justify-center px-4" dir="rtl">
+      <div className="w-full h-full flex flex-col items-center justify-end px-4" dir="rtl">
         <div className="w-full max-w-3xl">
           <div className="overflow-hidden rounded-lg border border-primary/30">
             {/* Table Body */}

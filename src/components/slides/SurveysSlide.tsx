@@ -32,7 +32,7 @@ export function SurveysSlide() {
   const prev = () => setIndex((i) => (i - 1 + images.length) % images.length);
 
   return (
-    <SlideShell title="تحليل نتائج الاستبيانات الميدانية" centered={true}>
+    <SlideShell title="نتائج الاستبيانات" centered={true}>
       <div className="relative w-full h-full flex flex-col gap-6 pt-4">
         
         {/* Tabs Switcher */}
@@ -75,7 +75,7 @@ export function SurveysSlide() {
                 transition={{ duration: 0.4 }}
                 className="w-full h-full p-2 flex items-center justify-center bg-white/90 dark:bg-white/10"
               >
-                <div className="w-full h-full relative">
+                <div className="w-full h-full relative scale-70 -mt-36">
                   <ZoomableImage 
                     src={images[currentIndex]} 
                     alt={`Survey result ${currentIndex + 1}`}
@@ -136,8 +136,8 @@ export function SurveysSlide() {
           className="text-center text-sm text-muted-foreground font-medium pb-4"
         >
           {activeTab === "doctor" 
-            ? "نتائج استبيان تم توزيعه على عينة من الأطباء في المستشفيات والعيادات الفلسطينية" 
-            : "نتائج استبيان تم توزيعه على عينة من المرضى والمراجعين لقياس قبول الرعاية الافتراضية"}
+            ? "نتائج استبيان تم توزيعه على عينة من الأطباء من مختلف التخصصات الطبية وشمل اكثر من مدينة داخل فلسيطن" 
+            : " نتائج استبيان تم توزيعه على عينة من المرضى والمراجعين لقياس قبول الرعاية الافتراضية من مختلف مدن فلسطين"}
         </motion.p>
       </div>
     </SlideShell>

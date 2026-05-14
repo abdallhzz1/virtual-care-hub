@@ -35,8 +35,17 @@ const features = [
 
 export function IdeaSlide() {
   return (
-    <SlideShell title="فكرة المشروع">
-      <div className="grid md:grid-cols-2 gap-4 lg:gap-5 max-w-7xl mx-auto">
+    <SlideShell>
+      <div className="flex flex-col items-center justify-center pt-20 gap-8">
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.85, delay: 0.3 }}
+          className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-right w-full gradient-text"
+        >
+          فكرة المشروع
+        </motion.h2>
+        <div className="grid md:grid-cols-2 gap-4 lg:gap-5 max-w-7xl mx-auto -mt-4">
         {features.map((f, i) => (
           <motion.div
             key={f.title}
@@ -62,6 +71,7 @@ export function IdeaSlide() {
             </div>
           </motion.div>
         ))}
+      </div>
       </div>
     </SlideShell>
   );

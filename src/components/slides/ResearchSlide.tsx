@@ -89,8 +89,8 @@ export function ResearchSlide() {
                 { task: "إدخال نتائج الفحوصات المخبرية", rate: "100%", time: "3.1", errors: "0" },
                 { task: "مسح الوصفات باستخدام رمز QR", rate: "100%", time: "1.2", errors: "0" },
                 { task: "الرسائل بين الطبيب والمريض", rate: "100%", time: "1.9", errors: "0" },
-                { task: "تقديم شكاوى إدارية", rate: "94.4%", time: "3.4", errors: "0" },
-                { task: "الدفع الإلكتروني", rate: "94.4%", time: "2.6", errors: "0" },
+                { task: "تقديم شكاوى إدارية", rate: "100%", time: "3.4", errors: "0" },
+                { task: "الدفع الإلكتروني", rate: "100%", time: "2.6", errors: "0" },
                 { task: "تقييم تجربة المستخدم الشاملة", rate: "100%", time: "-", errors: "0" },
               ].map((row, idx) => (
                 <tr key={idx} className="border-b border-border hover:bg-muted/50 transition-colors">
@@ -132,7 +132,7 @@ export function ResearchSlide() {
             <tbody>
               {[
                 { indicator: "توصيل نتيجة الفحص للطبيب", traditional: "12-48 ساعة (ورقي/WhatsApp)", platform: "< 2 ثانية (فوري)", improvement: "~99% أسرع" },
-                { indicator: "أخطاء نسخ الأدوية", traditional: "مرتفع (كتابي/شفوي)", platform: "محذوف (مصادقة رقمية)", improvement: "100%" },
+                { indicator: "أخطاء نسخ الأدوية", traditional: "مرتفع (كتابي/شفوي)", platform: "محذوف (مصادقة رقمية)", improvement: "99%" },
                 { indicator: "تنقل المريض للمتابعة", traditional: "مطلوب في معظم الحالات", platform: "غير مطلوب (افتراضي)", improvement: "~80% تقليل" },
                 { indicator: "إمكانية الوصول للملف الطبي", traditional: "مجزأ/ورقي/محلي", platform: "مركزي/فوري", improvement: "وصول كامل" },
               ].map((row, idx) => (

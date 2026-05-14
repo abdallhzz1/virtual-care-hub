@@ -14,7 +14,7 @@ export function UseCaseSlide() {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="lg:col-span-5 flex flex-col gap-8 text-right order-2 lg:order-1"
+          className="lg:col-span-5 flex flex-col gap-8 text-right order-2 lg:order-1 -mt-80"
         >
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight flex items-baseline gap-3 flex-wrap justify-start" dir="rtl">
               <span className="gradient-text">مخطط حالات الاستخدام</span>

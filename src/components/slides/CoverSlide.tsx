@@ -41,7 +41,7 @@ export function CoverSlide() {
           <p className="text-primary font-bold text-base md:text-xl tracking-wide">
             كلية تكنولوجيا المعلومات
           </p>
-          <p className="text-primary/80 font-semibold text-sm md:text-base tracking-wide">
+          <p className="text-black dark:text-white font-semibold text-sm md:text-base tracking-wide">
             تخصص علم الحاسوب
           </p>
         </motion.div>
@@ -79,7 +79,7 @@ export function CoverSlide() {
         >
           <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-transparent blur-xl opacity-50" />
           <p className="relative text-lg md:text-xl lg:text-2xl text-muted-foreground/90 max-w-4xl leading-relaxed font-medium">
-            نظام رقمي متكامل يربط الطبيب والمريض والمختبر في تجربة رعاية صحية ذكية وآمنة
+            نظام رقمي متكامل يربط الطبيب والمريض والمختبر في تجربة رعاية صحية آمنة
           </p>
         </motion.div>
       </div>

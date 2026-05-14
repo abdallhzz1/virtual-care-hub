@@ -26,6 +26,6 @@ export default defineConfig({
         },
       },
     },
-    chunkSizeWarningLimit: 1000, // Increase limit to 1MB to keep the build log clean
+    chunkSizeWarningLimit: 0, // Increase limit to 1MB to keep the build log clean
   },
 });

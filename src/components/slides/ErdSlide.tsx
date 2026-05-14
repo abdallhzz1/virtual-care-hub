@@ -7,7 +7,7 @@ import erdImage from "../../assets/erd.png";
 export function ErdSlide() {
   return (
     <SlideShell number={undefined} eyebrow={undefined} title={undefined}>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full max-w-7xl mx-auto h-full py-4 px-4">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full max-w-7xl mx-auto h-full py-4 px-4 -mt-12">
         
         {/* Left Side: Title & Info */}
         <motion.div 

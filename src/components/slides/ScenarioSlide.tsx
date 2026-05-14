@@ -94,8 +94,8 @@ export function ScenarioSlide({
   const bothStreams = mediaStream1 && mediaStream2;
 
   return (
-    <SlideShell title="سيناريو العمل التفاعلي">
-      <div className="relative w-full h-full flex flex-col pt-4">
+    <SlideShell title="سيناريو العمل التفاعلي" centered={true}>
+      <div className="relative w-full h-full flex flex-col pt-0">
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr_1fr] gap-4 flex-1 items-center">
           

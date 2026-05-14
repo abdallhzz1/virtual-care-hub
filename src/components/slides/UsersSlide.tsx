@@ -31,8 +31,17 @@ const users = [
 
 export function UsersSlide() {
   return (
-    <SlideShell title="المستخدمون">
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 max-w-7xl mx-auto">
+    <SlideShell>
+      <div className="flex flex-col items-center justify-center pt-20 gap-8">
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.85, delay: 0.3 }}
+          className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-right w-full gradient-text"
+        >
+          المستخدمون
+        </motion.h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 max-w-7xl mx-auto">
         {users.map((u, i) => (
           <motion.div
             key={u.title}
@@ -77,6 +86,7 @@ export function UsersSlide() {
             </div>
           </motion.div>
         ))}
+      </div>
       </div>
     </SlideShell>
   );

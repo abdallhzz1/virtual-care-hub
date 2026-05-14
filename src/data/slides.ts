@@ -16,7 +16,7 @@ export const slides: Slide[] = [
   { id: "system", title: "عرض النظام" },
   { id: "scenario", title: "سيناريو العمل" },
   { id: "research", title: "ملخص البحث العلمي" },
-  { id: "surveys", title: "تحليل الاستبيانات" },
+  { id: "surveys", title: " القيمة المضافة" },
   { id: "thanks", title: "تم بحمد الله" },
 ];
 
