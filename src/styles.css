@@ -121,6 +121,7 @@
     font-family: var(--font-arabic);
     overflow: hidden;
   }
+
 }
 
 @layer utilities {

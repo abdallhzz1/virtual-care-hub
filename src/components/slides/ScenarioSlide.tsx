@@ -13,11 +13,21 @@ const actorMeta: Record<string, { label: string; color: string }> = {
   system: { label: "النظام", color: "oklch(0.6 0.1 240)" },
 };
 
-export function ScenarioSlide() {
+interface ScenarioSlideProps {
+  mediaStream1: MediaStream | null;
+  setMediaStream1: (s: MediaStream | null) => void;
+  mediaStream2: MediaStream | null;
+  setMediaStream2: (s: MediaStream | null) => void;
+}
+
+export function ScenarioSlide({ 
+  mediaStream1, 
+  setMediaStream1, 
+  mediaStream2, 
+  setMediaStream2 
+}: ScenarioSlideProps) {
   const [active, setActive] = useState(0);
   const [autoplay, setAutoplay] = useState(false);
-  const [mediaStream1, setMediaStream1] = useState<MediaStream | null>(null);
-  const [mediaStream2, setMediaStream2] = useState<MediaStream | null>(null);
   const videoRef1 = useRef<HTMLVideoElement>(null);
   const videoRef2 = useRef<HTMLVideoElement>(null);
 
@@ -161,6 +171,19 @@ export function ScenarioSlide() {
 
           {/* Phone Mockup 1 Container */}
           <div className="flex flex-col items-center justify-center gap-6">
+            {/* Stream 1 Toggle Button - Now Above Phone */}
+            <button
+              onClick={mediaStream1 ? () => stopLiveDemo(1) : () => startLiveDemo(1)}
+              className={`rounded-full px-6 py-2 flex items-center gap-2 text-[10px] font-bold transition-all shadow-xl hover:scale-105 active:scale-95 ${
+                mediaStream1
+                  ? "bg-red-500 text-white"
+                  : "gradient-primary text-white"
+              }`}
+            >
+              {mediaStream1 ? <X className="w-3.5 h-3.5" /> : <MonitorSmartphone className="w-3.5 h-3.5" />}
+              {mediaStream1 ? "إيقاف بث 1" : "بث شاشة 1"}
+            </button>
+
             <div className="relative w-[270px] h-[580px] group shrink-0">
               {/* Ultra-thin bezel premium frame */}
               <div className="absolute -inset-1 bg-gradient-to-b from-white/20 to-black/20 rounded-[2.8rem] blur-[1px]" />
@@ -184,23 +207,23 @@ export function ScenarioSlide() {
                 </div>
               </div>
             </div>
-
-            {/* Stream 1 Toggle Button - Below Phone */}
-            <button
-              onClick={mediaStream1 ? () => stopLiveDemo(1) : () => startLiveDemo(1)}
-              className={`rounded-full px-6 py-2 flex items-center gap-2 text-[10px] font-bold transition-all shadow-xl hover:scale-105 active:scale-95 ${
-                mediaStream1
-                  ? "bg-red-500 text-white"
-                  : "gradient-primary text-white"
-              }`}
-            >
-              {mediaStream1 ? <X className="w-3.5 h-3.5" /> : <MonitorSmartphone className="w-3.5 h-3.5" />}
-              {mediaStream1 ? "إيقاف بث 1" : "بث شاشة 1"}
-            </button>
           </div>
 
           {/* Phone Mockup 2 Container */}
           <div className="flex flex-col items-center justify-center gap-6">
+            {/* Stream 2 Toggle Button - Now Above Phone */}
+            <button
+              onClick={mediaStream2 ? () => stopLiveDemo(2) : () => startLiveDemo(2)}
+              className={`rounded-full px-6 py-2 flex items-center gap-2 text-[10px] font-bold transition-all shadow-xl hover:scale-105 active:scale-95 ${
+                mediaStream2
+                  ? "bg-red-500 text-white"
+                  : "gradient-primary text-white"
+              }`}
+            >
+              {mediaStream2 ? <X className="w-3.5 h-3.5" /> : <MonitorSmartphone className="w-3.5 h-3.5" />}
+              {mediaStream2 ? "إيقاف بث 2" : "بث شاشة 2"}
+            </button>
+
             <div className="relative w-[270px] h-[580px] group shrink-0">
               {/* Ultra-thin bezel premium frame */}
               <div className="absolute -inset-1 bg-gradient-to-b from-white/20 to-black/20 rounded-[2.8rem] blur-[1px]" />
@@ -224,19 +247,6 @@ export function ScenarioSlide() {
                 </div>
               </div>
             </div>
-
-            {/* Stream 2 Toggle Button - Below Phone */}
-            <button
-              onClick={mediaStream2 ? () => stopLiveDemo(2) : () => startLiveDemo(2)}
-              className={`rounded-full px-6 py-2 flex items-center gap-2 text-[10px] font-bold transition-all shadow-xl hover:scale-105 active:scale-95 ${
-                mediaStream2
-                  ? "bg-red-500 text-white"
-                  : "gradient-primary text-white"
-              }`}
-            >
-              {mediaStream2 ? <X className="w-3.5 h-3.5" /> : <MonitorSmartphone className="w-3.5 h-3.5" />}
-              {mediaStream2 ? "إيقاف بث 2" : "بث شاشة 2"}
-            </button>
           </div>
 
 

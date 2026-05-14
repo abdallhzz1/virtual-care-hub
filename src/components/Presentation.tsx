@@ -37,6 +37,8 @@ export function Presentation() {
   const [dark, setDark] = useState(false);
   const [tocOpen, setTocOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [mediaStream1, setMediaStream1] = useState<MediaStream | null>(null);
+  const [mediaStream2, setMediaStream2] = useState<MediaStream | null>(null);
 
   // Theme
   useEffect(() => {
@@ -113,7 +115,15 @@ export function Presentation() {
       case "usecase": return <UseCaseSlide />;
       case "erd": return <ErdSlide />;
       case "system": return <SystemSlide onStart={() => setIndex(slides.findIndex((s) => s.id === "scenario"))} />;
-      case "scenario": return <ScenarioSlide />;
+      case "scenario": 
+        return (
+          <ScenarioSlide 
+            mediaStream1={mediaStream1} 
+            setMediaStream1={setMediaStream1}
+            mediaStream2={mediaStream2}
+            setMediaStream2={setMediaStream2}
+          />
+        );
       case "research": return <ResearchSlide />;
       case "thanks": return <ThanksSlide />;
       default: return null;

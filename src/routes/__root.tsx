@@ -24,7 +24,13 @@ function NotFoundComponent() {
   );
 }
 
+
 export const Route = createRootRoute({
-  component: () => <Outlet />,
+  component: () => (
+    <>
+      <Outlet />
+    </>
+  ),
   notFoundComponent: NotFoundComponent,
 });
+
